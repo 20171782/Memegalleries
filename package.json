@@ -1,72 +1,35 @@
 {
-  "name": "real-worl-vue",
+  "name": "meme-galleries",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "firebase": "^5.9.0",
-    "firestore": "^1.1.6",
-    "login": "^0.8.0",
-    "moments": "0.0.2",
-    "nprogress": "^0.2.0",
-    "slugify": "^1.3.4",
-    "uikit": "^3.1.5",
-    "v-emoji-picker": "^1.1.3",
-    "vue": "^2.6.6",
-    "vue-chat-scroll": "^1.3.5",
+    "core-js": "^3.4.4",
+    "firebase": "^7.6.1",
+    "moment": "^2.24.0",
+    "slugify": "^1.3.6",
+    "uikit": "^3.2.6",
+    "v-emoji-picker": "^2.0.2",
+    "vue": "^2.6.10",
+    "vue-chat-scroll": "^1.3.6",
     "vue-firestore": "^0.3.22",
-    "vue-google-adsense": "^1.6.0",
-    "vue-loader": "^15.7.0",
-    "vue-router": "^3.0.1",
-    "vue-script2": "^2.1.0",
-    "vue-sidebar-menu": "^3.9.0",
-    "vuejs-datepicker": "^1.5.4",
-    "vuex": "^3.0.1",
+    "vue-particles": "^1.0.9",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.2",
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
-    "@vue/eslint-config-prettier": "^4.0.1",
-    "babel-eslint": "^10.0.1",
-    "css-loader": "^3.2.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^1.0.0",
-    "sweetalert2": "^8.13.0",
-    "vue-adsense": "^1.0.1",
-    "vue-particles": "^1.0.9",
-    "vue-template-compiler": "^2.5.21",
-    "webpack": "^4.39.1"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/prettier"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-router": "^4.1.0",
+    "@vue/cli-plugin-vuex": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
+    "last 2 versions"
   ]
 }

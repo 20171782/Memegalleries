@@ -14,7 +14,7 @@
 
 <script>
     import VEmojiPicker from 'v-emoji-picker';
-    import packData from 'v-emoji-picker/data/emojis.json';
+    // import packData from 'v-emoji-picker/data/emojis.json';
 export default {
   name: "new",
     components: {

@@ -1,4 +1,11 @@
 <template>
+
+
+
+
+
+
+
 <div class="uk-text-center" style="padding-bottom: 50px;margin-top: 50px;margin-left: 400px">
   <form action="#" @submit.prevent="press">
     <div>

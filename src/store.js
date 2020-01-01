@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 
 export default new Vuex.Store({
+
   state: {
     countries: [
       "Afghanistan",
@@ -74,13 +75,9 @@ export default new Vuex.Store({
 
       { name: "Relationship" },
       { name: "Religious" },
-      { name: "Roman" },
+      { name: "Romance" },
       { name: "Sports" },
 
-
-
-
-      { name: "Women against" },
     ],
     Options:['Only Me','Frens','Public'],
     viewProfile: [],
