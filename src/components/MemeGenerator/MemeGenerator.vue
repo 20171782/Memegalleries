@@ -40,29 +40,40 @@
                         </div>
 
                         <div class="form-row upper ">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Top" v-model="top">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text" >{{max - top.length}}</div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Top" v-model="top" :maxlength="10">
                                 </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Down" v-model="bottom">
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text" >{{max - bottom.length}}</div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Down" v-model="bottom" :maxlength="10">
                                 </div>
+                            </div>
+
                             </div>
                             <br> <br>
 
 
 
 
-                            <div class="uk-child-width-1-3@l uk-grid-small uk-grid-match" uk-grid>
+                            <div class="uk-child-width-1-2@l uk-grid-small uk-grid-match" uk-grid>
                                 <div class="col">
                                     <p class="color-box uk-align-left uk-margin-remove-left" :style="{background:col}" v-for="col in colors" @mouseover="mouse(col)"></p>
                                 </div>
 
-                                <div class="">
-                                    <select class="form-control"  v-model="cat">
-                                        <option v-for="cate in Cats  " >{{cate.name}}</option>
+<!--                                <div class="">-->
+<!--                                    <select class="form-control"  v-model="cat">-->
+<!--                                        <option v-for="cate in Cats  " >{{cate.name}}</option>-->
 
-                                    </select>
-                                </div>
+<!--                                    </select>-->
+<!--                                </div>-->
 
                                    <div class="">
                                        <select class="form-control"  v-model="font_size">
@@ -385,21 +396,9 @@
                 </ul>
 
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
 
-<button >it worked {{selected_color}}</button>
+
     </div>
 </template>
 
@@ -411,10 +410,11 @@
         data() {
             return {
                 image: null,
+                max:10,
                 comment:null,
                 progress: null,
-                top:null,
-                bottom:null,
+                top:'',
+                bottom:'',
                 data:[],
                 animated:[],
                 love:[],
@@ -462,6 +462,12 @@
             Cats() {
                 return this.$store.state.categories
             },
+            Tops(){
+                var value
+                if (String(value).length <= 10) {
+                    this.top = value
+                }
+            }
         },
 
         methods: {
@@ -732,6 +738,10 @@ li button{
     margin-top: 50px;
 }
     h2{
+        font-weight: bold;
+    }
+    .input-group-text{
+        background: darkgray;
         font-weight: bold;
     }
 </style>

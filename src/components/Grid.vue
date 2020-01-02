@@ -3,13 +3,13 @@
     <div class="">
         <h3 class="uk-text-center">Explore</h3>
 
-        <div class=" uk-margin uk-align-center "><pro></pro></div>
-        <div class="first  uk-margin uk-align-center"><sidebar></sidebar></div>
+        <div class="uk-width-small  uk-margin uk-align-center "><pro></pro></div>
+        <div class="uk-width-small  uk-margin uk-align-center"><sidebar></sidebar></div>
 
         <div class=" uk-width-small  uk-margin uk-align-center"><notification></notification></div>
 
         <div class="uk-width-small uk-margin uk-align-center"><requests></requests></div>
-        <div class="uk-width-small uk-margin uk-align-center me"><img :src=" '/' + images " alt=""><span class="uk-text-bold" style="margin-left: 19px">Profile</span></div>
+        <div class="uk-width-small uk-margin uk-align-center me"><img :src=" '/' + images " alt=""><span class="uk-text-bold" >Profile</span></div>
         <div class="uk-width-small uk-margin uk-align-center"><upload></upload></div>
 
 
@@ -49,7 +49,6 @@ i{
     opacity: 0.5;
 }.me:hover{
     background-color: white;
-    padding:10px;
 
      width: 100%;opacity: 0.5;
 }

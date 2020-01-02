@@ -1,56 +1,63 @@
 <template>
+<div class="top uk-section-muted">
+
+ <div  class="uk-container ">
+   <form action="" @submit.prevent="press">
+     <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match uk-margin  " uk-grid>
+       <div>
+         <div>
+           <i class="fa fa-link" @click="Likes"></i>
+           <input class="uk-radio" name="group1" type="radio" value="mostLikes" v-model="mostLikes"/>
+           <span >Most Liked</span>
+         </div>
+       </div>
+
+
+       <div>
+         <div>
+           <i class="fa fa-link" @click="Comments"></i>
+           <input class="uk-radio" name="group1" type="radio" value="mostComments" v-model="mostComments"/>
+           <span>Most Comments</span>
+         </div>
+       </div>
+
+
+
+       <div>
+         <div>
+           <i class="fa fa-link" @click="myMemes"></i>
+           <input class="uk-radio" name="group1" type="radio" value="myMemes" v-model="mine"/>
+           <span>My Memes </span>
+         </div>
+       </div>
+
+       <div>
+         <div>
+           <i class="fa fa-link" @click="mostRecent"></i>
+           <input class="uk-radio" name="group1" type="radio" value="Recent" v-model="recent"/>
+           <span>Most Recent </span>
+         </div>
+       </div>
+
+       <div>
+         <div>
+           <span><i @click="press" class="fa fa-link "></i></span>
+           <select class=""  v-model="cat" >
+             <option  v-for="(cat, index) in Cats" :key="index" >{{
+               cat.name
+               }}</option>
+           </select>
+         </div>
+       </div>
+
+     </div>
+
+   </form>
+ </div>
 
 
 
 
-
-
-
-<div class="uk-text-center" style="padding-bottom: 50px;margin-top: 50px;margin-left: 400px">
-  <form action="#" @submit.prevent="press">
-    <div>
-      <label>
-        <i class="fa fa-link" @click="Likes"></i>
-        <input class="uk-radio" name="group1" type="radio" value="mostLikes" v-model="mostLikes"/>
-        <span>Most Liked(last two months)</span>
-      </label>
-    </div>
-
-    <div>
-      <label>
-        <i class="fa fa-link" @click="Comments"></i>
-        <input class="uk-radio" name="group1" type="radio" value="mostComments" v-model="mostComments"/>
-        <span>Most Comments(last two months)</span>
-      </label>
-    </div>
-
-
-    <div>
-      <div>
-        <i class="fa fa-link" @click="myMemes"></i>
-        <label>
-          <input class="uk-radio" name="group1" type="radio" value="myMemes" v-model="mine"/>
-          <span>My Memes</span>
-        </label>
-      </div>
-      <i class="fa fa-link" @click="mostRecent"></i>
-      <label>
-        <input class="uk-radio" name="group1" type="radio" value="Recent" v-model="recent"/>
-        <span>Most Recent</span>
-      </label>
-    </div>
-
-      <span><i @click="press" class="fa fa-link "></i></span>
-      <select class=" "  v-model="cat" >
-        <option  v-for="(cat, index) in Cats" :key="index" >{{
-          cat.name
-          }}</option>
-      </select>
-
-
-
-
-  </form>
 </div>
 </template>
 
@@ -133,21 +140,24 @@ button {
   margin-left: 10px;
 }
 
-div  ,i{
-  display: inline-block;
-  margin-left: 25px;
-
-}
+input,i,span{margin: 2px}
   label span{color: black}
   i{font-size: 30px;color:#009b3a  }
   .cat{
     width: 200px;
   }
 
-input,label,span,option{
-  margin-left: 5px;
-}
+
 input:checked ~ {
   background-color: black;
 }
+  .form-control{
+    width:30%
+  }
+
+
+  .top{
+    padding-top: 50px;
+    background: #e9ebee;
+  }
 </style>

@@ -2,13 +2,13 @@
   <div>
 
 <!--Carousel-->
-  <div class="uk-container uk-container-small" style="margin: 10px">
+  <div class="uk-container uk-container-small margin" style="">
     <div v-if="loading"><loader></loader></div>
 
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
       tabindex="-1"
-      uk-slideshow="autoplay: true; autoplay-interval: 2000;"
+      uk-slideshow="autoplay: true; autoplay-interval: 5000;"
     >
       <ul class="uk-slideshow-items">
         <li v-for="image in images" :key="image.timestamp">
@@ -25,10 +25,10 @@
               Description: {{ image.description }}.
 
             </p>
-            <p>Published: {{ image.timestamp|formatDate }}.</p>
-            <p class="uk-margin-remove">Category: {{ image.category }}</p>
-            <p
-              class="uk-margin-remove btn btn-secondary"
+<!--            <p>Published: {{ image.timestamp|formatDate }}.</p>-->
+<!--            <p class="uk-margin-remove">Category: {{ image.category }}</p>-->
+            <p style="background: green"
+              class=" btn btn-secondary uk-margin-remove"
               @mouseover="messages(image.Meme_id)"
             >
               View Comments<span uk-icon="icon: triangle-right"></span>
@@ -52,7 +52,7 @@
     </div>
 
 <!--    Dropdown -->
-    <div style="max-height: 500px;overflow: auto;border-radius:15px;width: 300px"
+    <div style="max-height: 500px;overflow: auto;width: 300px"
       uk-dropdown="mode:click;pos: right-center;duration:2000" class="uk-section uk-section-muted"
     >
       <div v-if="comments.length != 0">
@@ -236,5 +236,9 @@ a {
 }
   .uk-width-medium p{
     padding-bottom: 6px;
+  }
+  .margin{
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 </style>

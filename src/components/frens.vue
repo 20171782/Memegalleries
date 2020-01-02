@@ -1,63 +1,71 @@
 <template>
-    <div class="">
-
-<!--        <img :src="'/' + images" alt="">-->
-<!--        <img  style="opacity: 0.7"  src="https://cdn.pixabay.com/photo/2016/06/16/00/04/jamaica-1460207__340.jpg" alt="">-->
-        <!--Input Field-->
-        <div class="col-auto" style="margin-top: 50px">
-            <label class="sr-only" for="inlineFormInputGroup">Username</label>
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fa fa-search"></i></div>
-                </div>
-                <input  type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
-            </div>
-        </div>
-
+    <div class="uk-container uk-card-default">
         <div class="uk-card-header" v-if="frens.length !=0 || Friends.length !=0">
 
             <!--  For who sends fren request -->
             <h3 class="uk-text-bold">Your Frens</h3>
-
-
-
-            <div  v-for="requests in frens" class="uk-grid-small uk-flex-middle  uk-child-width-1-3@s   uk-margin-remove p-1" uk-grid>
-                <div class="">
-                    <img class="uk-border-circle" width="60" height="30" :src="requests.requesterImage">
-
-                </div>
-                    <div>
-                        <router-link :to="'/profile/' + requests.myAlias  "><span class="uk-text-bold" style="color: #009b3a">{{ requests.name}}</span></router-link>
+            <div class="" >
+                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-search"></i></div>
                     </div>
-                <div class="" >
-                    <button class="btn btn-light" type="button" @click="remove(requests.request_id)" style="color: black">Unfren</button>
+                    <input  type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
                 </div>
             </div>
 
-
-            <!--  For who requests fren request -->
-
-            <div  v-for="requests in Friends" class="uk-grid-small uk-flex-middle uk-child-width-1-3@s  uk-margin-remove p-1" uk-grid>
-                <div class="">
-                    <img class="uk-border-circle" width="60" height="30" :src="requests.user_requestedImage">
-
-                </div>
-                <router-link :to="'/profile/' + requests.userRequestedAlias " ><span class="uk-text-bold " style="color: #009b3a;">{{ requests.user_requestedName}}</span></router-link>
-
-                <div class="" >
-                    <button class="btn btn-light" type="button" @click="remove(requests.request_id)" style="color: black;">Unfren</button>
+<!--for received fren request-->
+            <div class="uk-card uk-card-default " v-for="requests in frens">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-auto">
+                            <img class="" width="40" height="40" :src="requests.requesterImage">
+                        </div>
+                        <div class="uk-width-expand">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
+                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><button class="btn btn-light" type="button" @click="remove(requests.request_id)" style="color: black">Unfren</button></time></p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
+
+
+            <!--  For who send fren request -->
+            <div class="uk-card uk-card-default me" v-for="requests in Friends">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-auto">
+                            <img class="" width="40" height="40" :src="requests.user_requestedImage">
+                        </div>
+                        <div class="uk-width-expand">
+                            <router-link :to="'/profile/' + requests.userRequestedAlias " ><span class=" " style="color: black">{{ requests.user_requestedName}}</span></router-link>
+<!--                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><button class="btn btn-light" type="button" " style="color: black;">Unfren</button></time></p>-->
+                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><span uk-tooltip="title: remove fren; pos: right" class="uk-margin-small-right" @click="remove(requests.request_id)" style="color:#009b3a " uk-icon="minus-circle"></span></time></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+
+
+
+
 
             <!--  Smiley face if dont have any frens   -->
-        </div>
+
         <div v-else>
             <h3>You have no frens</h3>
             <hr>
 
-            <span style='font-size:200px;'>&#128577;</span></div>
-    </div>
+            <span style='font-size:200px;'>&#128577;</span>
+        </div>
+
+</div>
+
 </template>
 
 
@@ -111,7 +119,7 @@
 
 <style scoped>
 button {
-    background-color: #fed100;
+    background-color: #009b3a;
     /*background-color: #e9ebee;*/
 
 
@@ -121,6 +129,8 @@ button {
 input{
     background-color: #e9ebee;
 }
-
+.uk-container{
+    height: 510px;
+}
 
 </style>
