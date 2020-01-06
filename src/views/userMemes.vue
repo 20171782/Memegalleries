@@ -1,15 +1,15 @@
 <template>
-    <div class="test" >
+    <div class="" >
 <div v-for="image in images" >
     <div>
         <div class="card">
             <div class="uk-card-header">
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="40" height="40" :src="image.Photo">
+                        <img class="uk-border-circle" width="40" height="20" :src="image.Photo">
                     </div>
                     <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">{{image.name}}</h3>
+                        <p class="uk-text-bold uk-margin-remove-bottom">{{image.name}}</p>
                         <p class="uk-text-meta uk-margin-remove-top"><time >Published: {{image.timestamp|formatDate}}</time></p>
                     </div>
                 </div>
@@ -23,6 +23,8 @@
                 <p><b>Category:</b> {{image.category}}</p>
                 <p><b>Published:</b> {{image.timestamp|formatDate}}</p>
                 <p><b>Comments:</b> {{image.counter}}</p>
+                <p><b>likes:</b> {{image.likes}}</p>
+                <p><b>dislikes:</b> {{image.dislikes}}</p>
 
 <!--                <span href="#"-->
 <!--                ><i class="fa fa-thumbs-up" style="font-size:24px">{{image.likes}}</i-->
@@ -70,7 +72,7 @@
         },
         created() {
             // this.$store.dispatch("ViewImages");
-            db.collection('Memes').where('alias','==',this.id)
+            db.collection('Memes')
                 .onSnapshot(querySnapshot => {
                     querySnapshot.docChanges().forEach(change => {
                         if (change.type === 'added') {
@@ -84,37 +86,14 @@
 </script>
 
 <style scoped>
-    .uk-width-auto img{
-        width: 40px;
-        width: 40px;height: 40px;
-    }
-    .test {
-        /*margin-top: 25px;*/
-        /*max-width: 300px;*/
-        margin-left: 100px;
 
-
-
-
-
-
+   .uk-width-auto img {
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        border: 5px solid #e9ebee ;
 
     }
- .uk-card-media-top   img{
-
-        max-width: 100%;
-
-        max-height: 70%;
-        width:500px;
-        height: 300px;
-        padding: 15px;
-    }
-
-.card{
-    width: 500px;
-}
-.uk-card-body h3{
-    font-size: 1.4rem;
-}
-
 </style>

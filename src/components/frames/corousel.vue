@@ -1,40 +1,47 @@
 <template>
-  <div>
+  <div class="uk-margin-top uk-margin-bottom" >
 
 <!--Carousel-->
-  <div class="uk-container uk-container-small margin" style="">
+  <div  style="">
     <div v-if="loading"><loader></loader></div>
+      <div class="uk-child-width-1-2" uk-grid>
+          <div><h3 class="uk-text-bold">{{Category[0]}} Memes</h3></div>
 
+          <div> <img src="@/assets/face.png" alt=""></div>
+      </div>
+
+
+    <hr class="">
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
       tabindex="-1"
-      uk-slideshow="autoplay: true; autoplay-interval: 5000;"
+      uk-slideshow="autoplay: true; autoplay-interval: 4000;"
     >
       <ul class="uk-slideshow-items">
         <li v-for="image in images" :key="image.timestamp">
+
           <router-link :to="'/start/' + image.Meme_id"
-            ><img :src="image.image"
+            ><img :src="image.image" style="border-radius: 10px" width="1500"
           /></router-link>
           <div
-            style="opacity: 0.9"
-            class="uk-overlay uk-overlay-primary uk-position-right uk-transition-slide-right"
+            style=""
+            class="uk-overlay uk-overlay-primary uk-position-right uk-transition-slide-right "
           >
-            <p class="uk-margin-remove">Title: {{ image.title }}</p>
-            <p class="uk-margin-remove">Author: {{ image.name }}</p>
-            <p class="uk-margin-remove">
-              Description: {{ image.description }}.
+              <p class="uk-margin-remove"> {{ image.name }}</p>
+              <p class="uk-margin-remove"> {{ image.timestamp|formatDate }}.</p>
+            <p class="uk-margin-remove">{{ image.title }}</p>
 
-            </p>
-<!--            <p>Published: {{ image.timestamp|formatDate }}.</p>-->
-<!--            <p class="uk-margin-remove">Category: {{ image.category }}</p>-->
-            <p style="background: green"
-              class=" btn btn-secondary uk-margin-remove"
+            <p class="uk-margin-remove"> {{ image.description }}.</p>
+
+            <p class="uk-margin-remove">{{ image.category }}</p>
+            <p class="uk-margin-remove btn btn-secondary"
               @mouseover="messages(image.Meme_id)"
-            >
+            style="background: #009b3a">
               View Comments<span uk-icon="icon: triangle-right"></span>
             </p>
           </div>
         </li>
+
       </ul>
 
       <a
@@ -127,11 +134,11 @@ export default {
     categories() {
       return this.$store.getters. loadedCategory;
     },
-    // testing(){
-    //   return this.images.slice().sort(function(a, b) {
-    //     return b.timestamp - a.timestamp;
-    //   });
-    // }
+   Category(){
+  return this.images.map((map)=>{
+   return  map.category
+  })
+   }
 
   },
 
@@ -218,7 +225,7 @@ i {
   margin-right: 15px;
   font-size: 1.1em;
   margin-top: 5px;
-  color: palevioletred;
+  color: #009b3a;
 }
 
 a {
@@ -237,8 +244,5 @@ a {
   .uk-width-medium p{
     padding-bottom: 6px;
   }
-  .margin{
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
+
 </style>

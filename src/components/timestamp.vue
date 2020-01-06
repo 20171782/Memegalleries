@@ -1,46 +1,48 @@
 <template>
-    <div class="uk-container uk-section uk-section-muted" style="margin-top: 0px" >
-        <div uk-slider="center: true">
-        <h3 class="uk-text-center">People you may know</h3>
-            <div  class="uk-position-relative uk-visible-toggle uk-light " tabindex="-1" >
-                <div class=" uk-slider-items uk-child-width-1-1@s uk-child-width-1-3@m " >
-                    <div class="card" v-for="use in users">
-                        <canvas class="header-bg" width="20" height="70" id="header-blur"></canvas>
-                        <div class="avatar">
-                            <img :src="use.image" alt="" />
-                        </div>
-                        <div class="content">
-                            <p>{{use.name}} <br>
-                                More description here</p>
-                            <div class="">
+   <div style="">
+       <div class="uk-container uk-margin-top" >
+           <div uk-slider="center: true">
+               <h5 class="uk-text-center">People you may know</h5>
+               <div  class="uk-position-relative uk-visible-toggle uk-light " tabindex="-1" >
+                   <div class=" uk-slider-items  uk-child-width-1-3@m " >
+                       <div class="card" v-for="use in users">
+                           <canvas class="header-bg" width="20" height="70" id="header-blur"></canvas>
+                           <div class="avatar">
+                               <img :src="use.image" alt="" />
+                           </div>
+                           <div class="content">
+                               <p>{{use.name}} <br>
+                                   More description here</p>
+                               <div class="">
 
-                                <button class="btn btn-light" type="button"
-                                        v-if="!test(use.id) && !confirm(use.id)"
-                                        @click="addfren(use.id, use.image, use.name, use.alias)"
-                                >
-                                    <i class="fa fa-user-plus"> fren</i>
-                                </button>
+                                   <button class="btn btn-light jump" type="button"
+                                           v-if="!test(use.id) && !confirm(use.id)"
+                                           @click="addfren(use.id, use.image, use.name, use.alias)"
+                                   >
+                                       <i class="fa fa-user-plus"> fren</i>
+                                   </button>
 
-                                <div style="margin-bottom: auto;" v-else class="uk-alert-primary" uk-alert>
-                                    <a class="uk-alert-close" uk-close ></a>
-                                    <p>
-                                        {{ msg }}<span>{{ use.name }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                   <div style="margin-bottom: auto;" v-else class="uk-alert-primary" uk-alert>
+                                       <a class="uk-alert-close" uk-close ></a>
+                                       <p>
+                                           {{ msg }}<span>{{ use.name }}</span>
+                                       </p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
 
-                <a style="color: #009b3a" class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                <a style="color: #009b3a" class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                   <a style="color: #009b3a" class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                   <a style="color: #009b3a" class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
-            </div>
+               </div>
 
-            <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+               <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 
-        </div>
-    </div>
+           </div>
+       </div>
+   </div>
 </template>
 
 <script>
@@ -175,7 +177,7 @@
         left: 0;
         width: 100%;
         height: 70px;
-        /*border-bottom: 1px rgba(0, 155, 58, 0.9) solid;*/
+        border-bottom: 1px rgba(0, 155, 58, 0.9) solid;
         border-bottom: 1px #e9ebee solid;
         /* This positions the canvas under the text */
         z-index: 1;
@@ -192,20 +194,31 @@
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        border: 5px solid  rgba(0, 155, 58, 0.9);
-        /*border: 5px solid #e9ebee;*/
+        border: 5px solid #e9ebee ;
+
     }
     button{
 
-        background-color:  rgba(254, 209, 0, 0.9) ;
+        background-color:  rgba(0, 155, 58, 0.9) ;
         /*background-color: #e9ebee;*/
     }
     @media only screen and (max-width: 600px) {
-        .uk-position-relative{
-            width: 30%;
-        }
+
         .card{
             width: 98%;
         }
+    }
+    .jump{
+    ;
+        -webkit-animation: mover 2s infinite  alternate;
+        animation: mover 1s infinite  alternate;
+    }
+    @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-5px); }
+    }
+    @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-8px); }
     }
 </style>

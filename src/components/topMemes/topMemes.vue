@@ -1,9 +1,8 @@
 <template>
-<div class="top uk-section-muted">
-
- <div  class="uk-container ">
+<div class="">
+  <div  class="uk-container uk-margin-top">
    <form action="" @submit.prevent="press">
-     <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match uk-margin  " uk-grid>
+     <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match  " uk-grid>
        <div>
          <div>
            <i class="fa fa-link" @click="Likes"></i>
@@ -142,7 +141,7 @@ button {
 
 input,i,span{margin: 2px}
   label span{color: black}
-  i{font-size: 30px;color:#009b3a  }
+  i{font-size: 20px;color:#009b3a  }
   .cat{
     width: 200px;
   }
@@ -156,8 +155,6 @@ input:checked ~ {
   }
 
 
-  .top{
-    padding-top: 50px;
-    background: #e9ebee;
-  }
+
+
 </style>

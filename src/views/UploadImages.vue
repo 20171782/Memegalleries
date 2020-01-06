@@ -1,6 +1,16 @@
 <template>
   <div style="" class="">
-    <span style="color: black" class="pointer" href="#modal-full" uk-toggle><img :src=" '/' + images " alt=""><span class="uk-text-bold" style="margin-left: 17px">upload</span></span>
+
+    <div class="uk-grid-small uk-flex-middle" uk-grid>
+      <div class="uk-width-auto">
+        <span style="color: black" class="pointer" href="#modal-full" uk-toggle><img :src=" '/' + images " alt=""></span>
+      </div>
+      <div class="uk-width-expand">
+        <span href="#modal-full" uk-toggle class="uk-text-bold uk" style="margin-left: 20px">upload</span>
+      </div>
+    </div>
+
+
 
     <div id="modal-full" class="uk-modal-full" uk-modal>
       <div class="uk-modal-dialog">
@@ -23,7 +33,7 @@
                 <label for="">Categories</label>
                 <select class="uk-select" v-model="cat" >
                   <option v-for="sta in Cats">{{ sta.name }}</option>
-                </select>
+                </select>r
                 <br>
                 <label for="">Acount Pivacy</label>
                 <select class="uk-select" v-model="choose" >
@@ -80,7 +90,8 @@
         Names:null,
         Pic:null,
         alias:null,
-        images:'upload.svg'
+        images:'upload.svg',
+
 
 
       };
@@ -164,7 +175,7 @@
       },
      Options() {
         return this.$store.state.Options;
-      }
+      },
     },
     created() {
       db.collection('Profile').where('id', '==', this.id)
@@ -174,6 +185,7 @@
                     this.Names=change.doc.data().name
                     this.Pic=change.doc.data().image
                     this.alias=change.doc.data().alias
+
                   }
 
                 });

@@ -14,17 +14,22 @@
 
 <!--            </div>-->
 
-            <div class=" uk-width-1-1@m">
-                <div class=" uk-grid-small uk-grid-match uk-margin uk-container" uk-grid>
-                    <div class=" uk-width-1-1@l" v-for="select_meme in select_memes" >
-                        <div  class="uk-height-medium    uk-background-cover uk-light"
-                             :data-src="select_meme.image"   uk-img >
-                            <h2 class="uk-text-center" v-bind:style="{ color: selected_color,fontSize:font_size }" style="font-weight: bold;font-size: 4.0em ;">{{top}}</h2>
-                            <h2 class="uk-text-center" v-bind:style="{ color: selected_color ,fontSize: font_size}" style="font-weight: bold;font-size: 4.0em;margin-top: 100px">{{bottom}}</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
+           <div class="uk-card  ">
+               <div class="uk-inline uk-margin"  v-for="select_meme in select_memes" >
+
+                   <img :src="select_meme.image" alt=""  >
+
+                   <div class="uk-position-top uk-overlay uk-overlay-hidden uk-text-center uk-text-center">
+                       <h2 class=" " v-bind:style="{ color: selected_color,fontSize:font_size + 'px' }" style="font-weight: bold;font-size: 4.0em ;">{{top}}</h2>
+                   </div>
+                   <div class="uk-position-bottom uk-overlay uk-overlay-hidden uk-text-center uk-text-center">   <h2 class=" " v-bind:style="{ color: selected_color ,fontSize: font_size + 'px'}" style="font-weight: bold;font-size: 4.0em;margin-top: 100px">{{bottom}}</h2></div>
+
+
+               </div>
+           </div>
+
 
             <form @submit.prevent=""  class="uk-margin-remove">
 
@@ -75,19 +80,21 @@
 <!--                                    </select>-->
 <!--                                </div>-->
 
-                                   <div class="">
-                                       <select class="form-control"  v-model="font_size">
-                                           <option v-for="font in Font_Size  " >{{font}}px</option>
+<!--                                   <div class="">-->
+<!--                                       <select class="form-control"  v-model="font_size">-->
+<!--                                           <option v-for="font in Font_Size  " >{{font}}px</option>-->
 
-                                       </select>
-                                   </div>
-
-
-
+<!--                                       </select>-->
+<!--                                   </div>-->
+                                <div class="uk-margin">
+                                    <input class="uk-range" type="range"  min="20" max="50" step="1" v-model="font_size">
+                                </div>
+                                <div style="padding-top: 10px">
+                                    <button  @click="confirm" type="submit" class="btn btn-primary uk-align-left" >Save</button>
+                                </div>
                             </div>
-                           <div style="padding-top: 10px">
-                               <button  @click="confirm" type="submit" class="btn btn-primary uk-align-left" >Save</button>
-                           </div>
+
+
 
 
 
@@ -146,8 +153,8 @@
                                 <div  >
                                     <div @click="press(dat.Meme_ID,dat.image)"  class="uk-height-medium   uk-background-cover uk-light"
                                          :data-src="dat.image"   uk-img >
-                                        <p class="uk-text-center"  v-bind:style="{ color: dat.color ,fontSize: dat.font}" >{{dat.top}}</p>
-                                        <p class="uk-text-center"   v-bind:style="{ color: dat.color ,fontSize: dat.font}">{{dat.bottom}}</p>
+                                        <p class="uk-position-top uk-overlay uk-overlay-hidden uk-text-center uk-margin-remove-top"  v-bind:style="{ color: dat.color ,fontSize: dat.font}" >{{dat.top}}</p>
+                                        <p class="uk-position-bottom uk-overlay uk-overlay-hidden uk-text-center"   v-bind:style="{ color: dat.color ,fontSize: dat.font}">{{dat.bottom}}</p>
 
                                     </div>
                                 </div>
@@ -462,6 +469,7 @@
             Cats() {
                 return this.$store.state.categories
             },
+
             Tops(){
                 var value
                 if (String(value).length <= 10) {
@@ -706,7 +714,10 @@
 
 <style scoped>
 
-
+img{
+    width: 400px;
+    height: 400px;
+}
 
     button{
         width:80px;background: #009b3a !important;
@@ -739,6 +750,7 @@ li button{
 }
     h2{
         font-weight: bold;
+        color:white
     }
     .input-group-text{
         background: darkgray;

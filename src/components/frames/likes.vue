@@ -2,24 +2,30 @@
   <div class="test d-flex">
     <div>
       <div>
-        <span href="#" v-if="ID" style="color: blue" @click="like"
+        <ul class="uk-tab-bottom" uk-tab>
+          <li class="uk-active"><a href=""></a></li>
+          <li><a href=""> <span href="#" v-if="ID" style="color: blue" @click="like" uk-tooltip="like meme"
           ><i class="fa fa-thumbs-up" style="font-size:24px"></i
-          ><span v-if="likenum">{{ likenum }} You liked this image</span></span
-        >
-        <span v-else @click="like"
-          ><i class="fa fa-thumbs-up" style="font-size:24px"></i
-          ><span v-if="likenum">{{ likenum }}</span></span
-        >
+          ><span v-if="likenum" >{{ likenum }} You liked this image</span></span
+          >
+            <span v-else @click="like" uk-tooltip="like meme"
+            ><i class="fa fa-thumbs-up" style="font-size:24px"></i
+            ><span v-if="likenum">{{ likenum }}</span></span
+            ></a></li>
 
-        <span v-if="UID" style="margin-left: 10px;color: blue" @click="unlike"
-        ><i class="fa fa-thumbs-down" style="font-size:24px"></i>
+
+          <li><a href="">  <span v-if="UID" style="margin-left: 10px;color: blue" @click="unlike" uk-tooltip="dislike meme"
+          ><i class="fa fa-thumbs-down" style="font-size:24px"></i>
             <span v-if=" dislikenum">{{  dislikenum }} You disliked this image</span>
         </span>
 
-          <span v-else style="margin-left: 10px" @click="unlike"
-        ><i class="fa fa-thumbs-down" style="font-size:24px"></i>
+            <span v-else style="margin-left: 10px" @click="unlike" uk-tooltip="dislike meme"
+            ><i class="fa fa-thumbs-down" style="font-size:24px"></i>
             <span v-if=" dislikenum">{{  dislikenum }}</span>
-        </span>
+        </span></a></li>
+
+
+        </ul>
 
       </div>
     </div>
@@ -36,6 +42,7 @@ export default {
   data() {
     return {
       likes: [],
+      meme:[],
         dislikes:[],
       id: firebase.auth().currentUser.uid,
       likemsg:'You liked this image',
@@ -60,7 +67,7 @@ export default {
                 .set({
                     time: Date.now(),
                     user_id: user.uid,
-                    Meme_id: this.ids
+                    Meme_id: this.ids,
                 });
             db.collection('dislikes').doc(this.ids + this.id).delete().then(()=>{
             }).then(()=>{
@@ -124,6 +131,12 @@ export default {
     this.$binding("dislikes", fb.collection("dislikes").where('Meme_id', '==', this.ids))
             .then((ford) => {
               this.dislikes === ford // => __ob__: Observer
+            }).catch(err => {
+      console.error(err)
+    })
+    this.$binding("meme", fb.collection("Memes").where('Meme_id', '==', this.ids))
+            .then((ford) => {
+              this.meme === ford // => __ob__: Observer
             }).catch(err => {
       console.error(err)
     })

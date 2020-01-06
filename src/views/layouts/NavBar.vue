@@ -1,61 +1,85 @@
 <template>
   <div class=" " style="">
 <div class="">
-  <nav class="uk-navbar-container header-holder tt-logo-center" uk-navbar>
-    <div class="uk-navbar-left uk-container@l">
+  <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+   <div >
+     <nav class="uk-navbar-container header-holder tt-logo-center" uk-navbar>
+       <div class="uk-navbar-left uk-container@l">
 
-      <ul class="uk-navbar-nav">
-        <li  > <router-link to="/GMap/Animated"><a ><img  src="https://cdn.pixabay.com/photo/2012/04/26/19/07/crab-42880__340.png" width="70" height="70" alt=""/></a></router-link></li>
-<!--        <li ><hr class="uk-divider-vertical" ></li>-->
-<!--        <li><a href=""><h1>Meme Galleries</h1></a></li>-->
-        <li class="uk-visible@l">
+         <ul class="uk-navbar-nav jump" style="height: 90px">
+           <li   style="margin-top: 10px " > <router-link to="/GMap/Animated"><a ><img  src="https://cdn.pixabay.com/photo/2012/04/26/19/07/crab-42880__340.png" width="40" height="40" alt=""/></a></router-link></li>
+<!--           <li style="margin-top: 20px" ><hr class="uk-divider-vertical" ></li>-->
+           <li style="margin-top: 15px" class="list"><a href="" ma><h2>Meme Galleries</h2></a></li>
+         </ul>
+       </div>
 
-          <a href=""><div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-          </div><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></a>
-        </li>
+       <div class="uk-visible@m uk-navbar-center">
+         <ul class="uk-navbar-nav">
+           <li class="">
 
-      </ul>
-
-    </div>
-    <div class="uk-navbar-right uk-visible@l">
-      <ul class="uk-navbar-nav">
-        <li v-if="user">
-          <router-link to="/about"
-          ><i class="fas fa-grin-alt">about us</i></router-link
-          >
-        </li>
-
-        <li v-if="!user">
-          <router-link to="/signup"
-          ><i class="fa fa-sign-out">Signup</i></router-link
-          >
-        </li>
-        <li v-if="!user">
-          <router-link :to="{ name: 'login' }"
-          ><i class=" fa fa-unlock">Login</i></router-link
-          >
-        </li>
-        <li v-if="user">
-          <a href=""> <i class="fa fa-shopping-cart">cart</i></a>
-        </li>
-        <li v-if="user">
-          <a href=""
-          ><i class="fa fa-user">{{ user.email }}</i></a
-          >
-        </li>
+             <a href=""><div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-sm"><span uk-icon="icon: search;ratio:1.9"></span></span>
+             </div><input type="text" placeholder="search for users"  class="form-control " aria-label="Small" aria-describedby="inputGroup-sizing-sm"></a>
+           </li>
+         </ul>
+       </div>
 
 
-        <li v-if="user">
-          <a href="" @click="logout"><i class="fa fa-sign-out">logout</i></a>
-        </li>
 
-        <li v-if="user">
-          <a href="" ><pro></pro></a>
-        </li>
-      </ul>
-    </div>
+       <div class="uk-navbar-right uk-visible@l ">
+<!--         <ul class="uk-navbar-nav" >-->
 
+<!--           <li v-if="user">-->
+<!--             <router-link to="/about"-->
+<!--             ><i class="fas fa-grin-alt"></i><span class="p-1 uk-text-bold">about us</span></router-link-->
+<!--             >-->
+<!--           </li>-->
+
+<!--           <li v-if="!user">-->
+<!--             <router-link to="/signup"-->
+<!--             ><i class="fa fa-sign-out"></i><span class="p-1 uk-text-bold">Signup</span></router-link-->
+<!--             >-->
+<!--           </li>-->
+<!--           <li v-if="!user">-->
+<!--             <router-link :to="{ name: 'login' }"-->
+<!--             ><i class=" fa fa-unlock"></i><span class="p-1 uk-text-bold">Login</span></router-link-->
+<!--             >-->
+<!--           </li>-->
+
+<!--           <li v-if="user">-->
+<!--             <a href=""> <i class="fa fa-shopping-cart"></i><span class="p-1 uk-text-bold">cart</span></a>-->
+<!--           </li>-->
+<!--           <li v-if="user">-->
+<!--             <a href="" ><pro></pro></a>-->
+<!--           </li>-->
+<!--           <li v-if="user">-->
+<!--             <a href=""-->
+<!--             ><i class="fa fa-user "></i><span class="p-1 uk-text-bold" >{{ user.email }}</span></a-->
+<!--             >-->
+<!--           </li>-->
+
+
+<!--           &lt;!&ndash;        <li v-if="user">&ndash;&gt;-->
+<!--           &lt;!&ndash;          <a href="" @click="logout"><i class="fa fa-sign-out"></i><span class="p-1">logout</span></a>&ndash;&gt;-->
+<!--           &lt;!&ndash;        </li>&ndash;&gt;-->
+
+
+<!--         </ul>-->
+         <ul class="uk-iconnav uk-navbar-nav">
+           <li><a href="#" uk-icon="icon: plus" style=""></a></li>
+           <li><a href="#" uk-icon="icon: file-edit"></a></li>
+           <li><a href="#" uk-icon="icon: copy"></a></li>
+           <li><a href="#" uk-icon="icon: trash"></a></li>
+         </ul>
+       </div>
+     </nav>
+   </div>
+  </div>
+
+
+
+<!--  small nav-->
+<nav>
     <div class="uk-navbar-right uk-hidden@l uk-text-justify">
       <div style="" class="uk-navbar-right" >
         <ul class="uk-navbar-nav"  >
@@ -75,36 +99,37 @@
           <div class="uk-width-1-1@s small">
             <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: false">
               <li v-if="user">
-                <a href="" ><pro></pro></a>
-              </li>
-              <li v-if="user">
                 <router-link to="/about"
-                ><i class="fas fa-grin-alt"><span>about us</span></i></router-link
+                ><i class="fas fa-grin-alt">about us</i></router-link
                 >
               </li>
 
               <li v-if="!user">
                 <router-link to="/signup"
-                ><i class="fa fa-sign-out"><span>Signup</span></i></router-link
+                ><i class="fa fa-sign-out">Signup</i></router-link
                 >
               </li>
-
               <li v-if="!user">
                 <router-link :to="{ name: 'login' }"
-                ><i class=" fa fa-unlock"><span>Login</span></i></router-link
+                ><i class=" fa fa-unlock">Login</i></router-link
                 >
               </li>
-
               <li v-if="user">
-                <a href=""> <i class="fa fa-shopping-cart"><span>cart</span></i></a>
+                <a href=""> <i class="fa fa-shopping-cart">cart</i></a>
               </li>
               <li v-if="user">
                 <a href=""
-                ><i class="fa fa-user"><span>{{ user.email }}</span></i></a
+                ><i class="fa fa-user">{{ user.email }}</i></a
                 >
               </li>
+
+
               <li v-if="user">
-                <a href="" @click="logout"><i class="fa fa-sign-out"><span>logout</span></i></a>
+                <a href="" @click="logout"><i class="fa fa-sign-out">logout</i></a>
+              </li>
+
+              <li v-if="user">
+                <a href="" ><pro></pro></a>
               </li>
 
 
@@ -181,37 +206,40 @@ export default {
         /*background-image: linear-gradient(to bottom, #fed100, #009b3a  84%);*/
         /*-pie-background: linear-gradient(to bottom, #fed100, #009b3a  84%);*/
       background-color: white;
-      border-bottom: 1px solid #29487d;
+      border-bottom: 1px solid  #e9ebee;
       opacity: 0.9;
     }
-.test {
-  margin-top: 0px;
-  background-color: #0a2b4e;
-  border-bottom: 1px solid orangered;
-}
-.me {
-  background: #0a2b4e;
-}
-h3 {
-  padding-left: 500px;
-  color: white;
-}
+
 i {
-  /*margin-right: 15px;*/
+
   font-size: 1.2em;
-  color: black;
+  color: #009b3a;
+
 }
-.right {
-  padding-right: 0px;
+span{
+  color: black !important;
 }
-nav {
-  width: 100%;
-}
-  h1{font-size:2.2em}
-  .small i{
-    color:green;
-  }
-    .small span{
-    padding-left: 10px;
-  }
+
+
+
+    h2{
+      font-family: 'Titan One', cursive;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.1;
+
+    }
+
+    @media only screen and (max-width: 600px) {
+      h2{
+        font-family: 'Titan One', cursive;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.1;
+
+      }
+      img{
+        width: 40px;
+      }
+    }
 </style>

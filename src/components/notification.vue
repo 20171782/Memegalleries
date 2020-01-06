@@ -1,7 +1,19 @@
 <template>
   <div>
       <div class="">
-          <span class="" ><img :src=" '/' + images " alt=""><span style="position:relative;top:-15px;left:-10px;margin-top: 5px;background-color: #009b3a" class="uk-badge">{{Friends.length}}</span><span class="uk-text-bold" style="">Alerts</span></span>
+
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+              <div class="uk-width-auto">
+                  <span class="" ><img :src=" '/' + images " alt=""><span style="position:relative;top:-15px;left:-10px;margin-top: 5px;background-color: #009b3a" class="uk-badge">{{Friends.length}}</span></span>
+              </div>
+              <div class="uk-width-auto">
+                  <span class="uk-text-bold" style="">Alerts</span>
+<!--                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>-->
+              </div>
+          </div>
+
+
+
           <div uk-dropdown="mode: click" v-if="Friends.length != 0">
               <div v-for="requests in Friends" class="uk-flex "  style="width: 450px">
                  <div>

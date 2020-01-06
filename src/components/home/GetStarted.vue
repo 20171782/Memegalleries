@@ -2,14 +2,14 @@
   <div>
     <navbar></navbar>
      <div v-if="loading"> <loader></loader></div>
-    <div class="test uk-section uk-section-muted" >
+    <div class="test uk-section-muted uk-margin-remove-top uk-container" >
       <div class="row p-5" v-for="gal in gallery">
         <div class="col">
           <div>
             <div class="me"><img :src="gal.image" alt="" /></div>
             <h3>{{ gal.title }}</h3>
 
-<!--  Display like button-->
+             <!--  Display like button-->
             <div style="float: right;padding-right: 15px">
               <likes :ids="ids"></likes>
             </div>
@@ -102,16 +102,14 @@ export default {
 
 <style scoped>
 .me img {
-  padding-top: 27px;
 
-  max-height: 100%;
-  max-width: 100%;
+
+  /*max-height: 100%;*/
+  /*max-width: 100%;*/
   height: 500px;
-  width: 1500px !important;
+  width: 1000px !important;
 }
-.test {
 
-}
 .uk-width-auto img {
   width: 50px;
   height: 50px;

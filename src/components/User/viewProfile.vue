@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
 <!--      <navbar></navbar>-->
       <div v-for="test in crabs" class=" card" style="margin: 40px">
           <h2> {{test.name}} Profile</h2>

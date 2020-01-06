@@ -45,6 +45,8 @@
 </script>
 
 <style scoped>
-img{width: 40px;height: 40px;border: 3px solid green}
-
+img{width: 50px;
+    height: 50px;
+    border: 3px solid #fed100}
+/*background-image: linear-gradient(to bottom, #fed100, #009b3a  84%);*/
 </style>

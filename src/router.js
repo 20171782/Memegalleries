@@ -5,7 +5,7 @@ import UIkit from "uikit";
 import Icons from "uikit/dist/js/uikit-icons";
 import "uikit/dist/css/uikit.css";
 UIkit.use(Icons);
-
+import userMemes from '@/views/userMemes'
 import GMap from "./components/home/GMap.vue";
 import start from "./components/home/GetStarted.vue";
 import Singup from "./components/auth/Signup.vue";
@@ -26,6 +26,7 @@ import Grid from "./components/Grid";
 import MyProfile from '@/views/layouts/banner'
 import memeGenerator from '@/components/testing'
 import Generator from './components/MemeGenerator/MemeGenerator'
+import admin from '@/Admin/admin.vue'
 
 Vue.use(Router);
 
@@ -124,13 +125,7 @@ const router = new Router({
 
       component: user
     },
-    {
-      path: "/timestamp",
-      name: "timestamp",
-      component: timestamp,
 
-
-    },
 
 
     {
@@ -151,6 +146,17 @@ const router = new Router({
       path: "/start/:id",
       name: "GetStarted",
       component: start,
+      props: true
+    },
+    {
+      path: "/userMemes",
+      name: "userMemes",
+      component: userMemes,
+      props: true
+    }, {
+      path: "/admin",
+      name: "admin",
+      component: admin,
       props: true
     },
   ]

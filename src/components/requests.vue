@@ -1,10 +1,22 @@
 <template>
   <div>
    <div>
-     <a class="" uk-toggle="target: #friends"
-     ><img :src=" '/' + images " alt=""><span style="position:relative;top:-15px;left:-10px;margin-top: 5px;background-color:#009b3a" class="uk-badge">{{friends.length}}</span><span class="uk-text-bold" style="overflow: hidden">Request</span>
-     </a
-     >
+     <div class="uk-grid-small uk-flex-middle" uk-grid>
+       <div class="uk-width-auto">
+         <a class="" uk-toggle="target: #friends"
+         ><img :src=" '/' + images " alt=""><span style="position:relative;top:-15px;left:-10px;margin-top: 5px;background-color:#009b3a;" class="uk-badge" >{{friends.length}}</span>
+         </a
+         >
+       </div>
+       <div class="uk-width-expand uk-text-justify">
+         <a href="" uk-toggle="target: #friends" style="color: black"> <span class="uk-text-bold" style="overflow: hidden">Request</span></a>
+       </div>
+     </div>
+
+
+
+
+
      <div id="friends" uk-offcanvas="overlay: true">
        <div class="uk-offcanvas-bar">
          <button class="uk-offcanvas-close" type="button" uk-close></button>

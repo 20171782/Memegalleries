@@ -31,11 +31,15 @@ import timestamp from "./components/timestamp";
 import update from '@/components/User/UpdateProfile'
 import TermsCondition from '@/components/auth/TermsCondition'
 import  navi from '@/components/MemeGenerator/Navi.vue'
+
+import Generator from './components/MemeGenerator/MemeGenerator'
+
 import VueFirestore from 'vue-firestore'
-
-
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue)
 Vue.use(VueFirestore)
-
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.filter('convert',(value)=>{
   return value.toUpperCase()
@@ -84,6 +88,7 @@ Vue.component('Grid',Grid)
 Vue.component('update',update)
 Vue.component('TermsCondition',TermsCondition)
 Vue.component('top', navi)
+Vue.component('Generator', Generator)
 import Grid from "./components/Grid";
 
 
