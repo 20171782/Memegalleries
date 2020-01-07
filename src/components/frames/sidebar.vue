@@ -1,12 +1,11 @@
 <template>
   <div>
-    <a class="" type="" uk-toggle="target: #offcanvas"
+    <a class="" type=""
       ><img :src=" '/' + images " alt=""><span class="uk-text-bold" style="margin-left: 5px">Users</span></a
     >
 
-    <div id="offcanvas" uk-offcanvas="flip:false; overlay: true">
-      <div class="uk-offcanvas-bar test">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
+    <div >
+      <div class=" test">
 
         <h3>Users</h3>
         <form class="uk-search uk-search-default" style="width: 220px">

@@ -194,7 +194,7 @@
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
-        border: 5px solid #e9ebee ;
+        border: 5px solid #fed100 ;
 
     }
     button{

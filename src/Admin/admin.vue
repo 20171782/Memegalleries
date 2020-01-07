@@ -22,7 +22,7 @@
         created(){
 
 
-            axios.get(' https://us-central1-myproject-bb84e.cloudfunctions.net/Admins')
+            axios.post('http://localhost:5000/myproject-bb84e/us-central1/Admins')
                 .then((response) =>{
                     // handle success
                     this.me = response;

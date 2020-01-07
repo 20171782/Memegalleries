@@ -17,9 +17,11 @@
          <ul class="uk-navbar-nav">
            <li class="">
 
-             <a href=""><div class="input-group-prepend">
-               <span class="input-group-text" id="inputGroup-sizing-sm"><span uk-icon="icon: search;ratio:1.9"></span></span>
-             </div><input type="text" placeholder="search for users"  class="form-control " aria-label="Small" aria-describedby="inputGroup-sizing-sm"></a>
+             <form class="uk-search uk-search-default" style="width: 250px">
+               <span uk-search-icon></span>
+               <input class="uk-search-input" type="search" placeholder="Search...">
+             </form>
+
            </li>
          </ul>
        </div>
@@ -66,10 +68,13 @@
 
 <!--         </ul>-->
          <ul class="uk-iconnav uk-navbar-nav">
-           <li><a href="#" uk-icon="icon: plus" style=""></a></li>
-           <li><a href="#" uk-icon="icon: file-edit"></a></li>
-           <li><a href="#" uk-icon="icon: copy"></a></li>
-           <li><a href="#" uk-icon="icon: trash"></a></li>
+           <li v-if="user"><router-link to="/about"><a href="#"  style=""><i class="fas fa-grin-alt"></i></a></router-link></li>
+           <li v-if="!user"><router-link to="/signup"><a href="#"  style=""><i class="fa fa-sign-out"></i></a></router-link></li>
+           <li v-if="!user"><router-link :to="{ name: 'login' }"><a href="#"  style=""><i class="fa fa-unlock"></i></a></router-link></li>
+           <li v-if="user"><router-link to="/about"><a href="#"  style=""><i class="fa fa-shopping-cart"></i></a></router-link></li>
+           <li v-if="user"><router-link to="/about"><a  @click="logout" href="#"  style=""><i class="fa fa-sign-out"></i></a></router-link></li>
+           <li v-if="user"><router-link to="/about"><a href="#"  style=""><pro></pro></a></router-link></li>
+
          </ul>
        </div>
      </nav>
@@ -212,8 +217,9 @@ export default {
 
 i {
 
-  font-size: 1.2em;
-  color: #009b3a;
+  font-size: 1.5em;
+  /*color: #009b3a;*/
+  color: gray;
 
 }
 span{

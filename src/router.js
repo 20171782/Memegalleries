@@ -27,6 +27,7 @@ import MyProfile from '@/views/layouts/banner'
 import memeGenerator from '@/components/testing'
 import Generator from './components/MemeGenerator/MemeGenerator'
 import admin from '@/Admin/admin.vue'
+import searchUser from '@/components/frames/sidebar.vue'
 
 Vue.use(Router);
 
@@ -44,6 +45,10 @@ const router = new Router({
       }
     },
     {
+      path: "/searchUser",
+      name: "searchUser",
+      component:searchUser
+    }, {
       path: "/Generator",
       name: "Generator",
       component: Generator
