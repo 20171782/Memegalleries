@@ -1,10 +1,10 @@
 <template>
  <div>
      <navbar></navbar>
-     <div class= "uk-section-muted" style="height: 100% !important;">
+     <div >
          <div> <pro></pro></div>
 
-       <div class="uk-container uk-flo" >
+       <div class="uk-container " >
            <ul uk-tab="" uk-grid>
                <li><a href="#" uk-icon="image" > </a></li>
                <li><a href="#" uk-icon="camera"></a></li>

@@ -1,7 +1,7 @@
 <template>
-  <div class="uk-container">
-      <div class=" uk-card">
-          <div  v-for="test in crabs"  style="margin: 40px ">
+  <div style="height: 400px;border-radius: 10px" class="uk-container uk-overlay uk-overlay-primary   uk-background-cover " data-src="https://cdn.pixabay.com/photo/2017/10/26/17/52/abstract-2891890__340.jpg" uk-img>
+      <div class="">
+          <div  v-for="test in crabs"  >
 
               <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
                   <div>
@@ -92,7 +92,8 @@ ID(){
     margin-top: -7px;
   }
   img {
-      max-height:250px ;
+      width: 50%;
+      height: 50%;
       border-radius: 90% !important;
   }
 
@@ -107,6 +108,8 @@ ID(){
       color: #009b3a;
   }
 
-
+p{
+    color: white;
+}
 
 </style>
