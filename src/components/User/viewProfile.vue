@@ -1,48 +1,49 @@
 <template>
-  <div class="">
-<!--      <navbar></navbar>-->
-      <div v-for="test in crabs" class=" card" style="margin: 40px">
-          <h2> {{test.name}} Profile</h2>
-          <div class="row">
-              <div class="col try" style="margin: 20px">
-                 <div v-if="test.image">
-                     <img :src="test.image" alt="Avatar" style="width:200px">
-                 </div>
-                  <div v-else>
-                      <photo></photo>
+  <div class="uk-container">
+      <div class=" uk-card">
+          <div  v-for="test in crabs"  style="margin: 40px ">
+
+              <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+                  <div>
+                      <h4 class="uk-heading-bullet"> {{ID}}'s Profile</h4>
+                      <div class="col try" style="margin: 20px">
+                          <div v-if="test.image" >
+                              <img class="" :src="test.image" alt="Avatar" style="border: solid #fed100">
+                          </div>
+                          <div v-else>
+                              <photo></photo>
+                          </div>
+
+                          <p><i class="fa fa-user"></i>  {{test.name}}</p>
+                          <p><i class="fa fa-hourglass-2"></i>  {{test.age}} years old</p>
+
+                      </div>
                   </div>
+                  <div>
+                      <div >
+                          <h4 class="uk-heading-bullet">Contact Information</h4>
+                          <p><i class="fa fa-fa fa-envelope-open"></i> {{test.email}}</p>
+                          <p><i class="fa fa-phone-square"></i> {{test.phone}}</p>
 
-                  <p><i class="fa fa-user"></i>  {{test.name}}</p>
-                  <p><i class="fa fa-hourglass-2"></i>  {{test.age}} years old</p>
 
+                          <h4 class="uk-heading-bullet" style="margin-top: 50px">General Information</h4>
+                          <p><i class="fa fa-users"></i> {{test.stat}}</p>
+                          <p><i class="fa fa-briefcase"></i> {{test.job}}</p>
+                          <p v-if="test.gender[0]=='male'"><i class="fa fa-male"></i> {{test.gender[0]}}</p>
+                          <p v-if="test.gender[0]=='female'"><i class="fa fa-female"></i> {{test.gender[0]}}</p>
+
+
+                          <p><i class="fa fa-map"></i>{{test.address}}</p>
+
+                      </div>
+                  </div>
+                  <div>
+                      <div >
+
+                          <update></update>
+                      </div>
+                  </div>
               </div>
-
-
-<!--    -->
-              <div class="col test">
-                <h4 style="">Contact Information</h4>
-                  <p><i class="fa fa-fa fa-envelope-open"></i> {{test.email}}</p>
-                  <p><i class="fa fa-phone-square"></i> {{test.phone}}</p>
-
-
-                  <h4 style="">General Information</h4>
-                  <p><i class="fa fa-users"></i> {{test.stat}}</p>
-                  <p><i class="fa fa-briefcase"></i> {{test.job}}</p>
-                  <p v-if="test.gender[0]=='male'"><i class="fa fa-male"></i> {{test.gender[0]}}</p>
-                  <p v-if="test.gender[0]=='female'"><i class="fa fa-female"></i> {{test.gender[0]}}</p>
-
-
-                  <p><i class="fa fa-map"></i>{{test.address}}</p>
-
-              </div>
-
-<div class="col " >
-
-    <div >
-        <img src="signup.svg" alt="">
-        <update></update>
-    </div>
-</div>
 
           </div>
       </div>
@@ -60,13 +61,17 @@ export default {
   data() {
     return {
 
-        crabs:[]
+        crabs:[],
+
+
     };
   },
 
 
 computed:{
-
+ID(){
+    return this.$route.params.id
+}
 },
 
   methods: {
@@ -74,7 +79,7 @@ computed:{
   },
   created() {
      this.$store.dispatch('ViewProfiles',this.crabs)
-    this.email =firebase .auth().currentUser.email
+
 
 
 
@@ -88,6 +93,7 @@ computed:{
   }
   img {
       max-height:250px ;
+      border-radius: 90% !important;
   }
 
     .try p{
@@ -98,15 +104,9 @@ computed:{
   i{margin-right: 15px;
       font-size: 1.5em;
       margin-top: 5px;
-      color: palevioletred;
+      color: #009b3a;
   }
 
 
-    .me{
-        font-size: 1em;
-        /*margin-right: 15px*/
-    }
-    .card{
-        /*width: 1480px;*/
-    }
+
 </style>

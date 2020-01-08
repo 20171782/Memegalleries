@@ -1,5 +1,5 @@
 <template>
-  <div class="uk-container  uk-child-width-1-4@m row" uk-grid >
+  <div class=" uk-child-width-1-4@m row" uk-grid >
       <div style="margin-top: 50px" v-for="message in messages" :key="message.message" class=" " uk-grid>
           <div>
               <div class="uk-card uk-card-default flex uk-animation-toggle" style="width: 200px;margin-left: 10px" tabindex="0" >
@@ -59,7 +59,7 @@ export default {
 <style scoped>
 img{
     width:250px;
-    max-height: 180px;
+    height: 180px;
 
 }
    i{

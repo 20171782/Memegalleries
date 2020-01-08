@@ -4,7 +4,7 @@
   <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
    <div >
      <nav class="uk-navbar-container header-holder tt-logo-center" uk-navbar>
-       <div class="uk-navbar-left uk-container@l">
+       <div class="uk-navbar-left ">
 
          <ul class="uk-navbar-nav jump" style="height: 90px">
            <li   style="margin-top: 10px " > <router-link to="/GMap/Animated"><a ><img  src="https://cdn.pixabay.com/photo/2012/04/26/19/07/crab-42880__340.png" width="40" height="40" alt=""/></a></router-link></li>
@@ -17,10 +17,7 @@
          <ul class="uk-navbar-nav">
            <li class="">
 
-             <form class="uk-search uk-search-default" style="width: 250px">
-               <span uk-search-icon></span>
-               <input class="uk-search-input" type="search" placeholder="Search...">
-             </form>
+            <users></users>
 
            </li>
          </ul>
@@ -29,44 +26,7 @@
 
 
        <div class="uk-navbar-right uk-visible@l ">
-<!--         <ul class="uk-navbar-nav" >-->
 
-<!--           <li v-if="user">-->
-<!--             <router-link to="/about"-->
-<!--             ><i class="fas fa-grin-alt"></i><span class="p-1 uk-text-bold">about us</span></router-link-->
-<!--             >-->
-<!--           </li>-->
-
-<!--           <li v-if="!user">-->
-<!--             <router-link to="/signup"-->
-<!--             ><i class="fa fa-sign-out"></i><span class="p-1 uk-text-bold">Signup</span></router-link-->
-<!--             >-->
-<!--           </li>-->
-<!--           <li v-if="!user">-->
-<!--             <router-link :to="{ name: 'login' }"-->
-<!--             ><i class=" fa fa-unlock"></i><span class="p-1 uk-text-bold">Login</span></router-link-->
-<!--             >-->
-<!--           </li>-->
-
-<!--           <li v-if="user">-->
-<!--             <a href=""> <i class="fa fa-shopping-cart"></i><span class="p-1 uk-text-bold">cart</span></a>-->
-<!--           </li>-->
-<!--           <li v-if="user">-->
-<!--             <a href="" ><pro></pro></a>-->
-<!--           </li>-->
-<!--           <li v-if="user">-->
-<!--             <a href=""-->
-<!--             ><i class="fa fa-user "></i><span class="p-1 uk-text-bold" >{{ user.email }}</span></a-->
-<!--             >-->
-<!--           </li>-->
-
-
-<!--           &lt;!&ndash;        <li v-if="user">&ndash;&gt;-->
-<!--           &lt;!&ndash;          <a href="" @click="logout"><i class="fa fa-sign-out"></i><span class="p-1">logout</span></a>&ndash;&gt;-->
-<!--           &lt;!&ndash;        </li>&ndash;&gt;-->
-
-
-<!--         </ul>-->
          <ul class="uk-iconnav uk-navbar-nav">
            <li v-if="user"><router-link to="/about"><a href="#"  style=""><i class="fas fa-grin-alt"></i></a></router-link></li>
            <li v-if="!user"><router-link to="/signup"><a href="#"  style=""><i class="fa fa-sign-out"></i></a></router-link></li>
@@ -218,8 +178,8 @@ export default {
 i {
 
   font-size: 1.5em;
-  /*color: #009b3a;*/
-  color: gray;
+  color: #009b3a;
+  /*color: gray;*/
 
 }
 span{

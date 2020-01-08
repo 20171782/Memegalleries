@@ -1,11 +1,11 @@
 <template>
 <div>
-    <div class="text-center my-3">
 
-        <b-button v-b-popover.hover.top="'I am popover directive content!'" title="Popover Title">
-            Hover Me
-        </b-button>
-    </div>
+    <ul id="component-tab-left" class="uk-switcher">
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+    </ul>
 </div>
 </template>
 

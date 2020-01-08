@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top></top>
+
         <div class="uk-container">
             <div class=" uk-grid-small uk-grid-match uk-margin " uk-grid>
                 <div class=" uk-width-1-4@l" v-for="dat in data" >

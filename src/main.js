@@ -31,9 +31,10 @@ import timestamp from "./components/timestamp";
 import update from '@/components/User/UpdateProfile'
 import TermsCondition from '@/components/auth/TermsCondition'
 import  navi from '@/components/MemeGenerator/Navi.vue'
-
+import users from '@/components/User/users.vue'
+import testing from "./components/testing";
 import Generator from './components/MemeGenerator/MemeGenerator'
-
+import gal from "@/components/pages/gallery";
 import VueFirestore from 'vue-firestore'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
@@ -61,6 +62,7 @@ Vue.use(VueChatScroll)
 
 
 Vue.component('home',home)
+Vue.component('testing',testing)
 Vue.component('profiles',profiles)
 Vue.component('navbar',navbar)
 Vue.component('foot',foot)
@@ -89,6 +91,8 @@ Vue.component('update',update)
 Vue.component('TermsCondition',TermsCondition)
 Vue.component('top', navi)
 Vue.component('Generator', Generator)
+Vue.component('users', users)
+Vue.component('gal', gal)
 import Grid from "./components/Grid";
 
 

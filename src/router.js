@@ -5,7 +5,7 @@ import UIkit from "uikit";
 import Icons from "uikit/dist/js/uikit-icons";
 import "uikit/dist/css/uikit.css";
 UIkit.use(Icons);
-import userMemes from '@/views/userMemes'
+
 import GMap from "./components/home/GMap.vue";
 import start from "./components/home/GetStarted.vue";
 import Singup from "./components/auth/Signup.vue";
@@ -15,11 +15,6 @@ import prof from "./components/auth/profile.vue";
 import firebase from "firebase";
 import about from "@/components/pages/about";
 import user from "@/components/User/createProfile";
-import memes from "@/views/UploadImages";
-import gal from "@/components/pages/gallery";
-import main from "./components/frames/bar";
-import testing from "./components/testing";
-import timestamp from "./components/timestamp";
 import Gif from "./components/Gif";
 import Home from "./components/Home";
 import Grid from "./components/Grid";
@@ -27,7 +22,7 @@ import MyProfile from '@/views/layouts/banner'
 import memeGenerator from '@/components/testing'
 import Generator from './components/MemeGenerator/MemeGenerator'
 import admin from '@/Admin/admin.vue'
-import searchUser from '@/components/frames/sidebar.vue'
+
 
 Vue.use(Router);
 
@@ -45,10 +40,6 @@ const router = new Router({
       }
     },
     {
-      path: "/searchUser",
-      name: "searchUser",
-      component:searchUser
-    }, {
       path: "/Generator",
       name: "Generator",
       component: Generator
@@ -85,41 +76,11 @@ const router = new Router({
     },
 
     {
-      path: "/bar",
-      name: "bar",
-      component: main,
-      children: [
-        {
-          path: "/gallery",
-          name: "gallery",
-          component: gal,
-          props: true
-        },
-
-
-
-
-        {
-          path: "/memes",
-          name: "memes",
-          component: memes,
-          props: true
-        }
-      ]
-    },
-
-    ,
-    {
       path: "/about",
       name: "about",
       component: about
     },
-
     {
-      path: "/testing",
-      name: "testing",
-      component: testing
-    }, {
       path: "/TermsCondition",
       name: "TermsCondition",
       component: TermsCondition
@@ -153,12 +114,7 @@ const router = new Router({
       component: start,
       props: true
     },
-    {
-      path: "/userMemes",
-      name: "userMemes",
-      component: userMemes,
-      props: true
-    }, {
+    , {
       path: "/admin",
       name: "admin",
       component: admin,

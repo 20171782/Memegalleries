@@ -1,28 +1,23 @@
 <template>
  <div>
      <navbar></navbar>
-     <div class="uk-section uk-section-muted">
-
-
+     <div class= "uk-section-muted" style="height: 100% !important;">
          <div> <pro></pro></div>
-         <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match uk-margin " uk-grid>
-             <div>
-                 <div >
-                     <profileComment></profileComment>
-                 </div>
-             </div>
-             <div>
-                 <div >
-                     <userMemes></userMemes>
-                 </div>
-             </div>
-             <div>
-                 <!--             <div >-->
-                 <!--                 <memeGenerator></memeGenerator>-->
-                 <!--             </div>-->
-             </div>
 
-         </div>
+       <div class="uk-container uk-flo" >
+           <ul uk-tab="" uk-grid>
+               <li><a href="#" uk-icon="image" > </a></li>
+               <li><a href="#" uk-icon="camera"></a></li>
+               <li><a href="#" >Big Up</a></li>
+           </ul>
+
+           <ul class="uk-switcher uk-margin">
+               <li><testing></testing></li>
+               <li><gal></gal></li>
+               <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+           </ul>
+       </div>
+         <timestamp></timestamp>
      </div>
  </div>
 </template>

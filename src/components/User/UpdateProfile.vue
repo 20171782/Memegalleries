@@ -226,7 +226,7 @@
     .test {
         max-width: 70%;
         padding-bottom: 200px;
-        padding-top: 20px;
+
     }
 
     input {
