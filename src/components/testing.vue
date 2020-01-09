@@ -1,19 +1,26 @@
 <template>
     <div>
+        <div class="uk-margin-remove-left">
+            <div class="uk-card uk-card-default" v-for="dat in data">
+                <div class="uk-card-media-top">
+                    <div class="uk-inline uk-margin"   >
 
-        <div class="uk-container">
-            <div class=" uk-grid-small uk-grid-match uk-margin " uk-grid>
-                <div class=" uk-width-1-4@l" v-for="dat in data" >
-                    <div   class="uk-height-medium   uk-background-cover uk-light"
-                         :data-src="dat.meme_image"   uk-img >
-                        <p class="uk-text-center"  v-bind:style="{ color: dat.color ,fontSize: dat.font}" >{{dat.top}}</p>
-                        <p class="uk-text-center me"   v-bind:style="{ color: dat.color ,fontSize: dat.font}">{{dat.bottom}}</p>
+                        <img :src="dat.meme_image" alt=""  >
+
+                        <div class="uk-position-top uk-overlay uk-overlay-hidden uk-text-center uk-text-center">
+                            <p class="uk-text-center"  v-bind:style="{ color: dat.color ,fontSize: dat.font}" >{{dat.top}}</p>
+                        </div>
+                        <div class="uk-position-bottom uk-overlay uk-overlay-hidden uk-text-center uk-text-center"><p class="uk-text-center me"   v-bind:style="{ color: dat.color ,fontSize: dat.font}">{{dat.bottom}}</p></div>
 
                     </div>
                 </div>
-
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">Media Top</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
             </div>
         </div>
+
     </div>
 </template>
 

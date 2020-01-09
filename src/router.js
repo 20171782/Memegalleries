@@ -11,7 +11,7 @@ import start from "./components/home/GetStarted.vue";
 import Singup from "./components/auth/Signup.vue";
 import logins from "./components/auth/login.vue";
 import TermsCondition from "./components/auth/TermsCondition.vue";
-import prof from "./components/auth/profile.vue";
+import prof from "@/components/auth/Profile_page.vue";
 import firebase from "firebase";
 import about from "@/components/pages/about";
 import user from "@/components/User/createProfile";

@@ -1,9 +1,9 @@
 <template>
-  <div style="height: 400px;border-radius: 10px" class="uk-container uk-overlay uk-overlay-primary   uk-background-cover " data-src="https://cdn.pixabay.com/photo/2017/10/26/17/52/abstract-2891890__340.jpg" uk-img>
+  <div style="height: 400px;border-radius: 5px" class="uk-container uk-overlay uk-overlay-primary   uk-background-cover " data-src="https://cdn.pixabay.com/photo/2017/10/26/17/52/abstract-2891890__340.jpg" uk-img>
       <div class="">
           <div  v-for="test in crabs"  >
 
-              <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+              <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
                   <div>
                       <h4 class="uk-heading-bullet"> {{ID}}'s Profile</h4>
                       <div class="col try" style="margin: 20px">
@@ -38,10 +38,10 @@
                       </div>
                   </div>
                   <div>
-                      <div >
+<!--                      <div >-->
 
-                          <update></update>
-                      </div>
+<!--                          <update></update>-->
+<!--                      </div>-->
                   </div>
               </div>
 

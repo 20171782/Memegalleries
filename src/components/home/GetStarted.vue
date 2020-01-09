@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <navbar></navbar>
+  <div class="uk-section-muted">
      <div v-if="loading"> <loader></loader></div>
-    <div class="test uk-section-muted uk-margin-remove-top uk-container" >
+    <div class="test  uk-margin-remove-top uk-container" >
       <div class="row p-5" v-for="gal in gallery">
         <div class="col">
           <div>
@@ -13,10 +12,8 @@
             <div style="float: right;padding-right: 15px">
               <likes :ids="ids"></likes>
             </div>
-
-
           </div>
-          <hr />
+
           <div class="">
             <div class="uk-width-auto d-flex">
               <img

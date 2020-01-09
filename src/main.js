@@ -35,6 +35,7 @@ import users from '@/components/User/users.vue'
 import testing from "./components/testing";
 import Generator from './components/MemeGenerator/MemeGenerator'
 import gal from "@/components/pages/gallery";
+import profile from "@/components/auth/profile.vue";
 import VueFirestore from 'vue-firestore'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
@@ -93,6 +94,7 @@ Vue.component('top', navi)
 Vue.component('Generator', Generator)
 Vue.component('users', users)
 Vue.component('gal', gal)
+Vue.component('profile',profile)
 import Grid from "./components/Grid";
 
 

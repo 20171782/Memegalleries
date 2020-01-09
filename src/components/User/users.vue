@@ -9,47 +9,52 @@
         <div >
             <b-popover   placement="bottom"  target="users" title="People you may know">
 
-               <div class="scroll"  style="height: 300px;overflow: auto">
+               <div class="scroll"  style="height: 325px;overflow: auto">
                    <!--Show the first four users  -->
-                   <div class="uk-card-header"  v-show="Show" v-for="use in sliceList">
-                       <div class="uk-grid-small uk-flex-middle " uk-grid v-if="!test(use.id) && !confirm(use.id)">
-                           <div class="uk-width-auto" v-if="!test(use.id) && !confirm(use.id)">
-                               <img class="uk-border-circle" width="40" height="40" :src="use.image">
+                   <div class="uk-card uk-card-default">
+                       <div class="uk-card-header"  v-show="Show" v-for="use in sliceList">
+                           <div class="uk-grid-small uk-flex-middle " uk-grid v-if="!test(use.id) && !confirm(use.id)">
+                               <div class="uk-width-auto" v-if="!test(use.id) && !confirm(use.id)">
+                                   <img class="uk-border-circle" width="40" height="40" :src="use.image">
+                               </div>
+                               <div v-if="!test(use.id) && !confirm(use.id)" class="uk-width-expand">
+                                   <p class=" uk-margin-remove-bottom">{{ use.name }}</p>
+                                   <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                               </div>
+                               <p uk-tooltip="title: Add Fren; pos: top-right"> <span  v-if="!test(use.id) && !confirm(use.id)" @click="addfren(use.id, use.image, use.name, use.alias)" uk-icon="plus-circle" ></span></p>
                            </div>
-                           <div v-if="!test(use.id) && !confirm(use.id)" class="uk-width-expand">
-                               <p class=" uk-margin-remove-bottom">{{ use.name }}</p>
-                               <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                           </div>
-                           <p uk-tooltip="title: Add Fren; pos: top-right"> <span  v-if="!test(use.id) && !confirm(use.id)" @click="addfren(use.id, use.image, use.name, use.alias)" uk-icon="plus-circle" ></span></p>
-                       </div>
 
-                       <p v-else>Request sent <span style="color: green">{{use.name}}</span></p>
+                           <p v-else>Request sent <span style="color: green">{{use.name}}</span></p>
+                       </div>
                    </div>
 
-
-                   <!--  Toggle the amount of pwesons to be shown-->
-                   <a style="color: orange" @click="change"
-                   >Show <span v-show="Show">all </span
-                   ><span v-show="Show" uk-icon="triangle-down"></span>
-                       <span v-show="!Show">less</span
-                       ><span v-show="!Show" uk-icon="triangle-up"></span
-                       ></a>
+                    <div  class="uk-card uk-card-default uk-text-center" style="color: orange;padding-top: 20px">
+                        <!--  Toggle the amount of pwesons to be shown-->
+                        <a  @click="change"
+                        >Show <span v-show="Show">all </span
+                        ><span v-show="Show" uk-icon="triangle-down"></span>
+                            <span v-show="!Show">less</span
+                            ><span v-show="!Show" uk-icon="triangle-up"></span
+                            ></a>
+                    </div>
 
                    <!--Show all users  -->
-                   <div class="uk-card-header"  v-show="!Show" v-for="use in filteredList">
-                       <div class="uk-grid-small uk-flex-middle" v-if="!test(use.id) && !confirm(use.id)" uk-grid>
-                           <div class="uk-width-auto" v-if="!test(use.id) && !confirm(use.id)">
-                               <img class="uk-border-circle" width="40" height="40" :src="use.image">
-                           </div>
-                           <div v-if="!test(use.id) && !confirm(use.id)" class="uk-width-expand">
-                               <p class=" uk-margin-remove-bottom">{{ use.name }}</p>
-                               <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
-                           </div>
-                           <p uk-tooltip="title: Add Fren; pos: top-right"> <span  v-if="!test(use.id) && !confirm(use.id)" @click="addfren(use.id, use.image, use.name, use.alias)" uk-icon="plus-circle" ></span></p>
-                       </div>
-                       <p v-else>request  to <span style="color: green">{{use.name}}</span></p>
-                   </div>
+                  <div  class="uk-card uk-card-default">
+                      <div class="uk-card-default uk-card-header"  v-show="!Show" v-for="use in filteredList">
+                          <div class="uk-grid-small uk-flex-middle" v-if="!test(use.id) && !confirm(use.id)" uk-grid>
+                              <div class="uk-width-auto" v-if="!test(use.id) && !confirm(use.id)">
+                                  <img class="uk-border-circle" width="40" height="40" :src="use.image">
+                              </div>
+                              <div v-if="!test(use.id) && !confirm(use.id)" class="uk-width-expand">
+                                  <p class=" uk-margin-remove-bottom">{{ use.name }}</p>
+                                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                              </div>
+                              <p uk-tooltip="title: Add Fren; pos: top-right"> <span  v-if="!test(use.id) && !confirm(use.id)" @click="addfren(use.id, use.image, use.name, use.alias)" uk-icon="plus-circle" ></span></p>
+                          </div>
+                          <p v-else>request  to <span style="color: green">{{use.name}}</span></p>
+                      </div>
 
+                  </div>
                </div>
 
             </b-popover>

@@ -1,10 +1,9 @@
 <template>
  <div>
-     <navbar></navbar>
      <div >
          <div> <pro></pro></div>
 
-       <div class="uk-container " >
+       <div class="" >
            <ul uk-tab="" uk-grid>
                <li><a href="#" uk-icon="image" > </a></li>
                <li><a href="#" uk-icon="camera"></a></li>
@@ -17,7 +16,6 @@
                <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
            </ul>
        </div>
-         <timestamp></timestamp>
      </div>
  </div>
 </template>

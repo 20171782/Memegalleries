@@ -1,11 +1,6 @@
 <template>
   <div  >
-    <div>
-      <navbar></navbar>
-    </div>
-
-
-     <div  class="uk-visible@m uk-child-width-1-3@m  uk-grid-divider uk-margin-remove"   uk-grid>
+    <div  class="uk-visible@m uk-child-width-1-3@m  uk-grid-divider uk-margin-remove"   uk-grid>
        <div>
          <div class="uk-card uk-align-center">
            <Grid></Grid>
