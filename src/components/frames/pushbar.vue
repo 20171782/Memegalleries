@@ -1,25 +1,53 @@
 <template>
     <div>
-        <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-overlay">Open</button>
 
-        <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
-            <div class="uk-offcanvas-bar">
-
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-
-                <h3>Title</h3>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
+    import db from "@/firebase/init";
+    import firebase from "firebase";
     export default {
-        name: "pushbar"
+        name: "pushbar",
+        data(){
+            return {
+
+            }
+        },
+        methods:{
+            get(){
+
+            }
+        },
+        created(){
+
+            db.collection("Memes")
+                .onSnapshot(function(snapshot) {
+                    snapshot.docChanges().forEach(function(change) {
+                        if (change.type === "added") {
+                            console.log("New city: ", change.doc.id);
+                        }
+                    });
+                });
+            db.collection("likes")
+                .onSnapshot(function(snapshot) {
+                    snapshot.docChanges().forEach(function(change) {
+                        if (change.type === "added") {
+                            console.log("New city: ", change.doc.id);
+                        }
+                    });
+                });
+
+
+
+
+
+
+
+
+
+
+        }
     }
 </script>
 

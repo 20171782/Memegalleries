@@ -22,6 +22,7 @@ import MyProfile from '@/views/layouts/banner'
 import memeGenerator from '@/components/testing'
 import Generator from './components/MemeGenerator/MemeGenerator'
 import admin from '@/Admin/admin.vue'
+import push from '@/components/frames/pushbar.vue'
 
 
 Vue.use(Router);
@@ -118,6 +119,11 @@ const router = new Router({
       path: "/admin",
       name: "admin",
       component: admin,
+      props: true
+    },{
+      path: "/push",
+      name: "push",
+      component: push,
       props: true
     },
   ]
