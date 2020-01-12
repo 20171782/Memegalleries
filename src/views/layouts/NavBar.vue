@@ -131,10 +131,12 @@ export default {
   computed: {},
   methods: {
     logout() {
-      this.$router.push({name:'login'});
+
       firebase
         .auth()
-        .signOut()
+        .signOut().then(()=>{
+        this.$router.push({name:'login'});
+      })
 
     },
     home(){

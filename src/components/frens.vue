@@ -33,8 +33,10 @@
                             <img class="" width="40" height="40" :src="requests.requesterImage">
                         </div>
                         <div class="uk-width-expand">
-                            <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><button class="btn btn-light" type="button" @click="remove(requests.request_id)" style="color: black">Unfren</button></time></p>
+                            <router-link :to="'/profile/' + requests.myAlias " ><span class=" " style="color: black">{{requests.myAlias }}</span></router-link>
+                        </div>
+                        <div>
+                            <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><span uk-tooltip="title: remove fren; pos: right" class="uk-margin-small-right" @click="remove(requests.request_id)" style="color:#009b3a " uk-icon="minus-circle"></span></time></p>
                         </div>
                     </div>
                 </div>
