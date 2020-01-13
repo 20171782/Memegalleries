@@ -1,23 +1,22 @@
 <template>
-    <div class=" uk-container "  >
+    <div class=" "  >
 
 
+        <div class="row col-md-12 "  v-if="frens.length !=0 || Friends.length !=0" uk-grid >
+            <div class="col-md-4">
 
-        <div class="uk-child-width-1-2@m " v-if="frens.length !=0 || Friends.length !=0" uk-grid >
-            <div class="">
                 <div class="uk-card-header" >
-
+                    <pro></pro>
+                    <br>
                     <!--  For who sends fren request -->
-
                     <div class="uk-card uk-card-default" style="" >
-
                         <div class="">
                             <label class="sr-only" for="inlineFormInputGroup">Username</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fa fa-search"></i></div>
                                 </div>
-                                <input  type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                                <input v-model="search"  type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
                             </div>
                         </div>
                     </div>
@@ -31,11 +30,11 @@
 
 
                     <!--for received fren request-->
-                    <div class="uk-card uk-card-default " v-for="requests in frens" style=" background: #e9ebee;">
+                    <div class="uk-card uk-card-default " v-for="requests in filteredfrens" style=" background: #e9ebee;">
                         <div class="uk-card-header" @click="convo(requests.request_id,requests.requester,requests.myAlias,requests.requesterImage)">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
                                 <div class="uk-width-auto">
-                                    <img class="" width="40" height="40" :src="requests.requesterImage">
+                                    <img class="uk-border-circle" width="40" height="40" :src="requests.requesterImage">
                                 </div>
                                 <div class="uk-width-expand">
                                     <router-link :to="'/profile/' + requests.myAlias " ><span class=" " style="color: black">{{requests.myAlias }}</span></router-link>
@@ -47,14 +46,14 @@
                     </div>
 
                     <!--  For who send fren request -->
-                    <div  class="uk-card uk-card-default me" v-for="requests in Friends"  style=" background: #e9ebee;" >
+                    <div  class="uk-card uk-card-default me" v-for="requests in filteredFren"  style=" background: #e9ebee;" >
                         <div class="uk-card-header" @click="convo(requests.request_id,requests.user_requested,requests.userRequestedAlias,requests.user_requestedImage)">
                             <div class="uk-grid-small uk-flex-middle" uk-grid :id="requests.user_requested">
                                 <div class="uk-width-auto">
-                                    <img class="" width="40" height="40" :src="requests.user_requestedImage">
+                                    <img class="uk-border-circle" width="40" height="40" :src="requests.user_requestedImage">
                                 </div>
                                 <div class="uk-width-expand">
-                                    <span class=" " style="color: black">{{ requests.user_requestedName}}</span>
+                                    <span class=" " style="color: black">{{ requests.userRequestedAlias}}</span>
 
                                 </div>
 
@@ -68,36 +67,60 @@
 
             </div>
 
-
-
-
-
-
-
-             <div>
+            <div class="Image col-md-8" style="">
                  <div class="">
                      <div  v-for="message in Messages" :key="message.timestamp"  >
-
-                       <div  v-if="message.user_from == id" >
-                           <div   style="float:left  ;background-color: #0e6dcd;padding:15px;margin: 15px">
-                               {{message.user_from}}<br> {{message.msg}}
+                         <div  v-if="message.user_from == id" >
+                           <div class="mint uk-card  uk-card-body"  style="float:left ;background-color: #009b3a;padding:15px;margin: 15px;text-align: left ">
+                               <article class="uk-comment">
+                                   <header class="uk-comment-header uk-grid-small " uk-grid>
+                                       <div class="uk-width-auto">
+                                           <img width="20"  height="30" class="uk-border-circle" :src="message.image" alt="">
+                                       </div>
+                                       <div class="uk-width-expand uk-margin-remove-left">
+                                           <p style="font-weight: bold" class=" uk-margin-remove"><a class="uk-link-reset" href="#">{{message.alias[0]}}</a></p>
+                                           <ul class="uk-comment-meta uk-subnav  uk-margin-remove-top">
+                                               <li><a style="color: white" href="#">{{message.timestamp|formatDate}}</a></li>
+                                               <li><a href="#"></a></li>
+                                           </ul>
+                                       </div>
+                                   </header>
+                                   <div class="uk-comment-body">
+                                       <p>{{message.msg}}</p>
+                                   </div>
+                               </article>
                            </div>
                        </div>
 
-                        <div v-else   >
-                            <div style="float:right;background-color:white;padding:5px;margin: 20px" >
-                                {{message.user_from}}<br> {{message.msg}}
+                        <div v-else   class="">
+                            <div class="mint uk-card uk-card-default uk-card-body" style="float:right;background-color:white;padding:15px;margin: 20px" >
+                                <article class="uk-comment">
+                                    <header class="uk-comment-header uk-grid-small " uk-grid>
+                                        <div class="uk-width-auto">
+                                            <img width="20"  height="30" class="uk-border-circle" :src="message.image" alt="">
+                                        </div>
+                                        <div class="uk-width-expand uk-margin-remove-left">
+                                            <p style="font-weight: bold" class=" uk-margin-remove"><a class="uk-link-reset" href="#">{{message.alias[0]}}</a></p>
+                                            <ul class="uk-comment-meta uk-subnav  uk-margin-remove-top">
+                                                <li><a style="color: black" href="#">{{message.timestamp|formatDate}}</a></li>
+                                                <li><a href="#"></a></li>
+                                            </ul>
+                                        </div>
+                                    </header>
+                                    <div class="uk-comment-body uk-margin-remove-top">
+                                        <p>{{message.msg}}</p>
+                                    </div>
+                                </article>
                             </div>
                         </div>
-
                      </div>
                  </div>
 
 
 
 
-                 <form @submit.prevent="PrivateMsg" class="uk-margin-large-top">
-                     <div class="form-group">
+                 <form @submit.prevent="PrivateMsg" class="form">
+                     <div class="form-group uk-margin-remove-left" >
                          <input type="text" class="form-control"  v-model="msg">
                      </div>
 
@@ -164,6 +187,7 @@
                 RequestedAlias:'',
                 user_requestedImage:'',
                 crabs:[],
+                search:''
 
 
             }
@@ -178,11 +202,12 @@
                              timestamp:Date.now(),
                              msg:this.msg,
                              status:1,
-                             image:this.user_requestedImage,
-                     alias:this.RequestedAlias
+                             image:this.MyImage,
+                     alias:this.Aliasname
                  }
                 db.collection('PrivateMessages').add(info).then(()=>{
                     this.success = 'message sent'
+                    this.msg = ''
                 })
                }else{
                  this.feedback = 'You need to a message'
@@ -233,11 +258,21 @@
                   return map.image
                })
            } ,
-           Alias(){
+           Aliasname(){
                return this.crabs.map((map)=>{
                   return map.alias
                })
-           }
+           },
+            filteredfrens() {
+                return this.frens.filter(post => {
+                    return post.myAlias.toLowerCase().includes(this.search.toLowerCase());
+                });
+            },
+            filteredFren() {
+                return this.Friends.filter(post => {
+                    return post.userRequestedAlias.toLowerCase().includes(this.search.toLowerCase());
+                });
+            },
         },
         firestore() {
             return {
@@ -273,16 +308,38 @@
 </script>
 
 <style scoped>
-    button {
-        background-color: #009b3a;
-        /*background-color: #e9ebee;*/
+   span{
+       margin-left: 5px;
+       font-weight: bold;
+   }
+.mint{width: 50%;
+border-radius: 10px}
+.Image{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrrOdOpWwB7DXN39isCYHuyLM9f95dxOsUoBF8Q21_ro-7Q5Cx&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
 
+.form input{
+    bottom:0;
+   right:307px;
+    position: fixed;
+    width: 50%;
+    margin-bottom: 10px;
+    background: #ddd;
 
+}
+    button{
+        bottom:0;
+right:230px;
+        position: fixed;
+
+        margin-bottom: 10px;
     }
-
-
-    input{
-        background-color: #e9ebee;
-    }
-
+   .scroll::-webkit-scrollbar {
+       display: none;
+   }
 </style>

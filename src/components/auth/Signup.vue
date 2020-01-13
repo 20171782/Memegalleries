@@ -1,6 +1,6 @@
 <template>
  <div>
-   <navbar></navbar>
+
   <div class="uk-section uk-section-muted" style="height: 100% !important;">
     <div class="container register" >
       <div class="row">
