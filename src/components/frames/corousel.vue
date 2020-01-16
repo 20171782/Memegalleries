@@ -4,11 +4,7 @@
 <!--Carousel-->
   <div  style="">
     <div v-if="loading"><loader></loader></div>
-      <div class="uk-child-width-1-2" uk-grid>
-          <div><h3 class="uk-text-bold">{{Category[0]}} Memes</h3></div>
 
-          <div> <img src="@/assets/face.png" alt=""></div>
-      </div>
 
 
     <hr class="">

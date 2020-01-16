@@ -21,7 +21,7 @@
                         </div>
                     </div>
 
-                    <div class=" uk-card-default" style=" background: #e9ebee;border-radius: 15px 15px 1px 1px ;margin-top: 10px" >
+                    <div class=" uk-card-default" style=" background: white;border-radius: 15px 15px 1px 1px ;margin-top: 10px" >
                         <div class="uk-card-header">
                             <h3 class="uk-text-bold" >Your Frens</h3>
                         </div>
@@ -30,7 +30,7 @@
 
 
                     <!--for received fren request-->
-                    <div class="uk-card uk-card-default uk-card-hover" v-for="requests in filteredfrens" style=" background: #e9ebee;">
+                    <div class="uk-card uk-card-default uk-card-hover" v-for="requests in filteredfrens" style=" background: white">
                         <div class="uk-card-header" @click="convo(requests.request_id,requests.requester,requests.myAlias,requests.requesterImage)">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
                                 <div class="uk-width-auto">
@@ -46,7 +46,7 @@
                     </div>
 
                     <!--  For who send fren request -->
-                    <div  class="uk-card uk-card-hover uk-card-default me" v-for="requests in filteredFren"  style=" background: #e9ebee;" >
+                    <div  class="uk-card uk-card-hover uk-card-default me" v-for="requests in filteredFren"  style=" background: white" >
                         <div class="uk-card-header" @click="convo(requests.request_id,requests.user_requested,requests.userRequestedAlias,requests.user_requestedImage)">
                             <div class="uk-grid-small uk-flex-middle" uk-grid :id="requests.user_requested">
                                 <div class="uk-width-auto">
@@ -318,7 +318,7 @@ border-radius: 10px}
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqn3mVcHMUk3Pq_LhI-k2510pZOpJjoCEYwWt_VtaM9JPHDK7E&s');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 750px;
+    min-height: 1000px;
     overflow: auto;
     scroll-behavior: smooth;
 }
@@ -343,7 +343,7 @@ right:230px;
        display: none;
    }
     .uk-card :hover{
-        background-color: #009b3a;
+        background-color: #e9ebee;;
         opacity: 0.9;
     }
 </style>
