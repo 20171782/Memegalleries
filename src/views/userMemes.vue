@@ -17,27 +17,19 @@
             <div class="uk-card-media-top">
                 <router-link :to="'/start/' + image.Meme_id"><img :src="image.image" alt=""></router-link>
             </div>
-            <div class="uk-card-body">
-                <h3 class=""><b>Title:</b> {{image.title}}</h3>
-                <p><b>Description:</b> {{image.description}}</p>
-                <p><b>Category:</b> {{image.category}}</p>
-                <p><b>Published:</b> {{image.timestamp|formatDate}}</p>
-                <p><b>Comments:</b> {{image.counter}}</p>
-                <p><b>likes:</b> {{image.likes}}</p>
-                <p><b>dislikes:</b> {{image.dislikes}}</p>
 
-<!--                <span href="#"-->
-<!--                ><i class="fa fa-thumbs-up" style="font-size:24px">{{image.likes}}</i-->
-<!--                >-->
-<!--                </span>-->
-
-<!--                <span href="#" style=" margin-left: 10px;"-->
-<!--                ><i class="fa fa-thumbs-down" style="font-size:24px">{{image.dislikes}}</i-->
-<!--                ></span>-->
-
-
-
+            <div v-if="comment.Meme_id == image.Meme_id" v-for="comment in comments">
+              {{comment.message}}
             </div>
+<!--            <div class="uk-card-body">-->
+<!--                <h3 class=""><b>Title:</b> {{image.title}}</h3>-->
+<!--                <p><b>Description:</b> {{image.description}}</p>-->
+<!--                <p><b>Category:</b> {{image.category}}</p>-->
+<!--                <p><b>Published:</b> {{image.timestamp|formatDate}}</p>-->
+<!--                <p><b>Comments:</b> {{image.counter}}</p>-->
+<!--                <p><b>likes:</b> {{image.likes}}</p>-->
+<!--                <p><b>dislikes:</b> {{image.dislikes}}</p>-->
+<!--            </div>-->
         </div>
     </div>
 
@@ -57,6 +49,8 @@
         data() {
             return {
                 images:[],
+                comments:[],
+                likes:[],
                 id:this.$route.params.id
             };
         },
@@ -77,6 +71,23 @@
                     querySnapshot.docChanges().forEach(change => {
                         if (change.type === 'added') {
                             this.images.push(change.doc.data());
+                        }
+
+                    });
+                });
+            db.collection('message')
+                .onSnapshot(querySnapshot => {
+                    querySnapshot.docChanges().forEach(change => {
+                        if (change.type === 'added') {
+                            this.comments.push(change.doc.data());
+                        }
+
+                    });
+                }); db.collection('likes')
+                .onSnapshot(querySnapshot => {
+                    querySnapshot.docChanges().forEach(change => {
+                        if (change.type === 'added') {
+                            this.likes.push(change.doc.data());
                         }
 
                     });

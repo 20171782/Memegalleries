@@ -173,7 +173,7 @@ export default {
 
   created() {
     this.$store.dispatch("carousel", this.images);
-    this.messages;
+
   }
 };
 </script>
