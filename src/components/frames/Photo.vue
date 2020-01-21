@@ -1,7 +1,12 @@
 <template>
 
     <div>
-        <img src="" alt="">
+        fdsf
+        <div v-for="item in comments">
+            {{item}}<br><br>
+            Count: {{getLikeCount(item)}}
+
+        </div>
     </div>
 </template>
 
@@ -11,55 +16,11 @@
     export default {
         name: "Photo",
         data(){
-            return{comments:[],
+            return{
+              comments:[],
                 likes:[],
                 results:[],
-                commentate:[
-                    {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
-                    {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
-                    {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
-                    {id:'BIBvgwGGu6NWwQcg2ywp',comment:'second'},
-                    {id:'BIBvgwGGu6NWwQcg2ywp',comment:'second'},
-                    {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
-                    {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
-                    {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
-                ],
+
 
             }
         },
@@ -74,41 +35,52 @@
                         }
                     });
                 });
-            for(let i in self.likes){
+
                 db.collection("likes")
                     .onSnapshot(querySnapshot => {
                         querySnapshot.docChanges().forEach(change => {
                             if (change.type === "added") {
                                 this.likes.push(change.doc.data());
 
-                                var likeArray = []
-                                    if(self.likes[i].Meme_id === self.comments[i].Meme_id  ){
-                                        var alias = self.comments[i].alias;
-                                        var name = self.comments[i].name;
-                                        console.log(self.likes[i].Meme_id)
-                                        // likeArray.push(self.likes[i])
-                                        // self.results.push({
-                                        //     alias:alias,
-                                        //     name:name,
-                                        //     likeArray:likeArray
-                                        // })
-                                    }
-
-
 
                             }
                         });
                     });
-            }
+
 
         },
-        mounted() {
-            var self = this;
-            // console.log(self.comments)
-
-            for(let i in self.comments) {
-                console.log(self.comments)
+      methods:{
+          getLikeCount(item)
+        {
+          var count = 0;
+          for(var item1 in this.likes)
+          {
+            if (item.Meme_id === this.likes[item1].Meme_id)
+            {
+              count = count + 1;
+            }else{
             }
+          }
+          return count;
+        }
+      },
+        mounted() {
+          var self = this;
+          var tmp = {};
+          var tmp1 = [];
+            // console.log(self.comments)
+            this.$nextTick(function(){
+
+
+              console.log('Tick function')
+              for (let i = 0; i < tmp.length; i++) {
+                console.log('kkk');
+              }
+              for(var i in self.comments) {
+                console.log(i)
+              }
+            })
+
             // for(let i in self.likes){
             //     console.log(self.likes[i].Meme_id)
             //     var likeArray = []
