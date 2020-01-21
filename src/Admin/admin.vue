@@ -315,12 +315,12 @@
 .mint{width: 50%;
 border-radius: 10px}
 .Image{
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqn3mVcHMUk3Pq_LhI-k2510pZOpJjoCEYwWt_VtaM9JPHDK7E&s');
+    background-image: url('https://cdn.pixabay.com/photo/2015/02/07/02/17/paper-626781_960_720.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 1000px;
+    min-height: 100px;
     overflow: auto;
-    scroll-behavior: smooth;
+
 }
 
 .form input{

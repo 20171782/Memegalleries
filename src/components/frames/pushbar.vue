@@ -17,7 +17,7 @@
         name: "pushbar",
         data(){
             return {
-                count:[],
+data:[],
               me:[
                   {name:'Dalton',id:'12345'},
                   {name:'Daequan',id:'4564'},
@@ -52,10 +52,17 @@
 
                 ],
                 comments:[
-                    {id:'786887978979878',comment:'first'},
-                    {id:'4564',comment:'second'},
-                    {id:'4564',comment:'third'},
-                    {id:'786887978979878',comment:'fourth'},
+                    {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
+                    {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
+                    {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
+                    {id:'BIBvgwGGu6NWwQcg2ywp',comment:'second'},
+                    {id:'BIBvgwGGu6NWwQcg2ywp',comment:'second'},
+                    {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
+                    {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
+                    {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
+                    {id:'53NUXgzdTKhiZCrubOmf\n',comment:'fourth'},
+                    {id:'53NUXgzdTKhiZCrubOmf\n',comment:'fourth'},
+                    {id:'53NUXgzdTKhiZCrubOmf\n',comment:'fourth'},
                 ]
             }
         },
@@ -70,7 +77,23 @@
 
 
         created(){
+          var self = this;
 
+            for(let i in self.comments){
+              console.log( self.comments[i].id)
+              db.collection("Memes")
+                .onSnapshot(querySnapshot => {
+                  querySnapshot.docChanges().forEach(change => {
+                    if (change.type === "added") {
+                      self.data.push(change.doc.data());
+                      self.comments.push(self.data)
+                      // if(self.data[i].Meme_id == self.comments[i].id ){
+                      //   self.comments.push(self.data)
+                      // }
+                    }
+                  });
+                });
+            }
 
 
         }
