@@ -1,12 +1,9 @@
 <template>
     <div>
- <div v-for="(ent,index) in me" :key="index" @click="test(ent.id,index.length)">
-     {{ent.name}}
-     <div v-if="ent.id == gn.id" v-for="(gn,sav,com) in like" :key="sav">
-{{gn.id}}
+
      </div>
 
- </div>
+
     </div>
 </template>
 
@@ -18,41 +15,11 @@
         data(){
             return {
 data:[],
-              me:[
-                  {name:'Dalton',id:'12345'},
-                  {name:'Daequan',id:'4564'},
-                  {name:'Savisha',id:'87678'},
-                  {name:'Family',id:'786887978979878'},
 
 
-              ],
-                like:[
-
-                    {id:'12345'},
-
-                    {id:'12345'},
-                    {id:'4564'},
-                    {id:'4564'},
-                    {id:'4564'},
-                    {id:'4564'},
-                    {id:'4564'},
-                    {id:'4564'},
-
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-                    {id:'786887978979878'},
-
-
-                ],
                 comments:[
                     {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
+                    {id:'5jnlkFlLCEPpbfHmixe',comment:'Dont try this'},
                     {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
                     {id:'5jnlkFlLCEPpbfHmixe',comment:'first'},
                     {id:'BIBvgwGGu6NWwQcg2ywp',comment:'second'},
@@ -60,39 +27,49 @@ data:[],
                     {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
                     {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
                     {id: 'Gq0xZTGGnT9qDXorNvEN',comment:'third'},
-                    {id:'53NUXgzdTKhiZCrubOmf\n',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf\n',comment:'fourth'},
-                    {id:'53NUXgzdTKhiZCrubOmf\n',comment:'fourth'},
-                ]
+                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
+                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
+                    {id:'53NUXgzdTKhiZCrubOmf',comment:'fourth'},
+                ],
+
+
+
+                pic:[
+                    {id:'5jnlkFlLCEPpbfHmixe',feedback:'disliked'},
+
+                    {id:'BIBvgwGGu6NWwQcg2ywp',feedback:'disliked'},
+                    {id:'5jnlkFlLCEPpbfHmixe',feedback:'this is bad for business'},
+                    {id:'BIBvgwGGu6NWwQcg2ywp',feedback:'liked'},
+                    {id:'BIBvgwGGu6NWwQcg2ywp',feedback:'liked'},
+
+                ],
+                results:[]
             }
         },
         methods:{
-            test(id,inex){
-                console.log(id)
-                return this.like.filter((map)=>{
-                    return map.id == id
-                })
-            }
+
         },
 
 
         created(){
           var self = this;
 
-            for(let i in self.comments){
-              console.log( self.comments[i].id)
-              db.collection("Memes")
-                .onSnapshot(querySnapshot => {
-                  querySnapshot.docChanges().forEach(change => {
-                    if (change.type === "added") {
-                      self.data.push(change.doc.data());
-                      self.comments.push(self.data)
-                      // if(self.data[i].Meme_id == self.comments[i].id ){
-                      //   self.comments.push(self.data)
-                      // }
-                    }
-                  });
-                });
+            for(let i in self.pic){
+
+                if(self.comments[i].id === self.pic[i].id)
+                var idse = self.comments[i].id;
+                var commented = self.comments[i].comment;
+                var feedbacks = self.pic[i].feedback
+                console.log(commented)
+                {
+                    self.results.push({
+                        id:idse,
+                        comment:commented,
+                        feeds:feedbacks
+                    })
+              }
+
+
             }
 
 

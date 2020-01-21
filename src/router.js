@@ -23,6 +23,7 @@ import memeGenerator from '@/components/testing'
 import Generator from './components/MemeGenerator/MemeGenerator'
 import admin from '@/Admin/admin.vue'
 import push from '@/components/frames/pushbar.vue'
+import testing from '@/components/frames/Photo.vue'
 
 
 Vue.use(Router);
@@ -91,6 +92,13 @@ const router = new Router({
       name: "UserProfile",
 
       component: user
+    },
+
+    {
+      path: "/testing",
+      name: "testing",
+
+      component:testing
     },
 
 
