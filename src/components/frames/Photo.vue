@@ -86,7 +86,7 @@
                                         var alias = self.comments[i].alias;
                                         var name = self.comments[i].name;
                                         console.log(self.likes[i].Meme_id)
-                                        // likeArray.push(self.likes[i])
+                                        likeArray.push(self.likes[i])
                                         // self.results.push({
                                         //     alias:alias,
                                         //     name:name,
