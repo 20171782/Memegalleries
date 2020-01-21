@@ -1,0 +1,164 @@
+[debug] [2020-01-07T01:32:06.147Z] ----------------------------------------------------------------------
+[debug] [2020-01-07T01:32:06.151Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Dalton\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2020-01-07T01:32:06.151Z] CLI Version:   7.11.0
+[debug] [2020-01-07T01:32:06.151Z] Platform:      win32
+[debug] [2020-01-07T01:32:06.151Z] Node Version:  v12.13.1
+[debug] [2020-01-07T01:32:06.152Z] Time:          Mon Jan 06 2020 20:32:06 GMT-0500 (Colombia Standard Time)
+[debug] [2020-01-07T01:32:06.153Z] ----------------------------------------------------------------------
+[debug] [2020-01-07T01:32:06.153Z] 
+[debug] [2020-01-07T01:32:06.168Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-07T01:32:06.169Z] > authorizing via signed-in user
+[debug] [2020-01-07T01:32:06.170Z] [iam] checking project myproject-bb84e for permissions ["firebase.projects.get"]
+[debug] [2020-01-07T01:32:06.173Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/myproject-bb84e:testIamPermissions  
+
+[debug] [2020-01-07T01:32:06.534Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-07T01:32:06.537Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/myproject-bb84e  
+ 
+[debug] [2020-01-07T01:32:06.916Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "12"
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "C:\Memegalleries\meme-galleries\functions" for Cloud Functions...
+[debug] [2020-01-07T01:32:09.462Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-01-07T01:32:09.462Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-01-07T01:32:09.463Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-01-07T01:32:09.463Z] [worker-~diagnostic~-66ea003e-53e7-4772-9d86-9c9b5f624313]: Assigning socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\1416
+[debug] [2020-01-07T01:32:09.464Z] [worker-~diagnostic~-66ea003e-53e7-4772-9d86-9c9b5f624313]: BUSY
+[debug] [2020-01-07T01:32:10.283Z] [runtime-status] [1416] Functions runtime initialized. {"cwd":"C:\\Memegalleries\\meme-galleries\\functions","node_version":"12.13.1"}
+[debug] [2020-01-07T01:32:10.284Z] [runtime-status] [1416] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-01-07T01:32:10.290Z] [runtime-status] [1416] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-01-07T01:32:10.295Z] [runtime-status] [1416] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:32:10.297Z] [runtime-status] [1416] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[Admins]: http function initialized (http://localhost:5000/myproject-bb84e/us-central1/Admins).
+[debug] [2020-01-07T01:32:10.397Z] [worker-~diagnostic~-66ea003e-53e7-4772-9d86-9c9b5f624313]: IDLE
+[debug] [2020-01-07T01:32:15.719Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-01-07T01:32:15.721Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-01-07T01:32:15.722Z] Accepted request GET /myproject-bb84e/us-central1/Admins --> Admins
+[debug] [2020-01-07T01:32:15.730Z] [worker-pool] addWorker(Admins)
+[debug] [2020-01-07T01:32:15.730Z] [worker-pool] Adding worker with key Admins, total=1
+[debug] [2020-01-07T01:32:15.730Z] [worker-pool] submitWork(triggerId=Admins)
+[debug] [2020-01-07T01:32:15.730Z] [worker-Admins-7eead799-3252-4c34-9454-bbbf580ed3ca]: Assigning socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\14380
+[debug] [2020-01-07T01:32:15.731Z] [worker-Admins-7eead799-3252-4c34-9454-bbbf580ed3ca]: BUSY
+[debug] [2020-01-07T01:32:16.781Z] [runtime-status] [14380] Functions runtime initialized. {"cwd":"C:\\Memegalleries\\meme-galleries\\functions","node_version":"12.13.1"}
+[debug] [2020-01-07T01:32:16.783Z] [runtime-status] [14380] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-01-07T01:32:16.790Z] [runtime-status] [14380] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-01-07T01:32:16.794Z] [runtime-status] [14380] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:32:16.796Z] [runtime-status] [14380] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:32:16.902Z] [runtime-status] [14380] Trigger "Admins" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Admins"
+[debug] [2020-01-07T01:32:16.904Z] [runtime-status] [14380] triggerDefinition {"httpsTrigger":{},"name":"Admins","entryPoint":"Admins"}
+[debug] [2020-01-07T01:32:16.904Z] [runtime-status] [14380] Running Admins in mode HTTPS
+[debug] [2020-01-07T01:32:16.912Z] [runtime-status] [14380] Attempting to listen to socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\14380
+[debug] [2020-01-07T01:32:16.925Z] [functions] Runtime ready! Sending request!
+[debug] [2020-01-07T01:32:16.937Z] [runtime-status] [14380] Ephemeral server handling GET request
+[debug] [2020-01-07T01:32:18.014Z] [runtime-status] [14380] Ephemeral server survived.
+[info] >  Error updating user: FirebaseAppError: Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".
+[info] >      at FirebaseAppError.FirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+[info] >      at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+[info] >      at new FirebaseAppError (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:123:28)
+[info] >      at C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\firebase-app.js:121:23
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+[info] >    errorInfo: {
+[info] >      code: 'app/invalid-credential',
+[info] >      message: 'Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".'
+[info] >    },
+[info] >    codePrefix: 'app'
+[info] >  }
+[debug] [2020-01-07T01:33:38.019Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-01-07T01:33:38.019Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-01-07T01:33:38.020Z] Accepted request GET /myproject-bb84e/us-central1/Admins --> Admins
+[debug] [2020-01-07T01:33:38.029Z] [worker-pool] addWorker(Admins)
+[debug] [2020-01-07T01:33:38.029Z] [worker-pool] Adding worker with key Admins, total=2
+[debug] [2020-01-07T01:33:38.029Z] [worker-pool] submitWork(triggerId=Admins)
+[debug] [2020-01-07T01:33:38.030Z] [worker-Admins-e761a285-f186-4d53-b465-947701f8af23]: Assigning socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\11960
+[debug] [2020-01-07T01:33:38.030Z] [worker-Admins-e761a285-f186-4d53-b465-947701f8af23]: BUSY
+[debug] [2020-01-07T01:33:39.165Z] [runtime-status] [11960] Functions runtime initialized. {"cwd":"C:\\Memegalleries\\meme-galleries\\functions","node_version":"12.13.1"}
+[debug] [2020-01-07T01:33:39.167Z] [runtime-status] [11960] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-01-07T01:33:39.173Z] [runtime-status] [11960] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-01-07T01:33:39.180Z] [runtime-status] [11960] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:33:39.184Z] [runtime-status] [11960] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:33:39.316Z] [runtime-status] [11960] Trigger "Admins" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Admins"
+[debug] [2020-01-07T01:33:39.318Z] [runtime-status] [11960] triggerDefinition {"httpsTrigger":{},"name":"Admins","entryPoint":"Admins"}
+[debug] [2020-01-07T01:33:39.319Z] [runtime-status] [11960] Running Admins in mode HTTPS
+[debug] [2020-01-07T01:33:39.332Z] [runtime-status] [11960] Attempting to listen to socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\11960
+[debug] [2020-01-07T01:33:39.344Z] [functions] Runtime ready! Sending request!
+[debug] [2020-01-07T01:33:39.361Z] [runtime-status] [11960] Ephemeral server handling GET request
+[debug] [2020-01-07T01:33:39.477Z] [runtime-status] [11960] Ephemeral server survived.
+[info] >  Error updating user: FirebaseAppError: Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".
+[info] >      at FirebaseAppError.FirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+[info] >      at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+[info] >      at new FirebaseAppError (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:123:28)
+[info] >      at C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\firebase-app.js:121:23
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+[info] >    errorInfo: {
+[info] >      code: 'app/invalid-credential',
+[info] >      message: 'Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".'
+[info] >    },
+[info] >    codePrefix: 'app'
+[info] >  }
+[debug] [2020-01-07T01:35:38.906Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-01-07T01:35:38.906Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-01-07T01:35:38.907Z] Accepted request GET /myproject-bb84e/us-central1/Admins --> Admins
+[debug] [2020-01-07T01:35:38.913Z] [worker-pool] addWorker(Admins)
+[debug] [2020-01-07T01:35:38.913Z] [worker-pool] Adding worker with key Admins, total=3
+[debug] [2020-01-07T01:35:38.913Z] [worker-pool] submitWork(triggerId=Admins)
+[debug] [2020-01-07T01:35:38.913Z] [worker-Admins-e6204d1e-5125-4a9e-a956-6b6b7be6d9ea]: Assigning socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\14952
+[debug] [2020-01-07T01:35:38.914Z] [worker-Admins-e6204d1e-5125-4a9e-a956-6b6b7be6d9ea]: BUSY
+[debug] [2020-01-07T01:35:40.041Z] [runtime-status] [14952] Functions runtime initialized. {"cwd":"C:\\Memegalleries\\meme-galleries\\functions","node_version":"12.13.1"}
+[debug] [2020-01-07T01:35:40.043Z] [runtime-status] [14952] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-01-07T01:35:40.049Z] [runtime-status] [14952] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-01-07T01:35:40.053Z] [runtime-status] [14952] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:35:40.055Z] [runtime-status] [14952] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:35:40.172Z] [runtime-status] [14952] Trigger "Admins" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Admins"
+[debug] [2020-01-07T01:35:40.174Z] [runtime-status] [14952] triggerDefinition {"httpsTrigger":{},"name":"Admins","entryPoint":"Admins"}
+[debug] [2020-01-07T01:35:40.174Z] [runtime-status] [14952] Running Admins in mode HTTPS
+[debug] [2020-01-07T01:35:40.181Z] [runtime-status] [14952] Attempting to listen to socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\14952
+[debug] [2020-01-07T01:35:40.191Z] [functions] Runtime ready! Sending request!
+[debug] [2020-01-07T01:35:40.210Z] [runtime-status] [14952] Ephemeral server handling GET request
+[debug] [2020-01-07T01:35:40.315Z] [runtime-status] [14952] Ephemeral server survived.
+[info] >  Error updating user: FirebaseAppError: Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".
+[info] >      at FirebaseAppError.FirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+[info] >      at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+[info] >      at new FirebaseAppError (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:123:28)
+[info] >      at C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\firebase-app.js:121:23
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+[info] >    errorInfo: {
+[info] >      code: 'app/invalid-credential',
+[info] >      message: 'Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".'
+[info] >    },
+[info] >    codePrefix: 'app'
+[info] >  }
+[debug] [2020-01-07T01:37:44.245Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-01-07T01:37:44.246Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-01-07T01:37:44.246Z] Accepted request GET /myproject-bb84e/us-central1/Admins --> Admins
+[debug] [2020-01-07T01:37:44.254Z] [worker-pool] addWorker(Admins)
+[debug] [2020-01-07T01:37:44.254Z] [worker-pool] Adding worker with key Admins, total=4
+[debug] [2020-01-07T01:37:44.255Z] [worker-pool] submitWork(triggerId=Admins)
+[debug] [2020-01-07T01:37:44.255Z] [worker-Admins-931bed1e-4b39-4e01-b137-cb70405b3705]: Assigning socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\10644
+[debug] [2020-01-07T01:37:44.255Z] [worker-Admins-931bed1e-4b39-4e01-b137-cb70405b3705]: BUSY
+[debug] [2020-01-07T01:37:45.569Z] [runtime-status] [10644] Functions runtime initialized. {"cwd":"C:\\Memegalleries\\meme-galleries\\functions","node_version":"12.13.1"}
+[debug] [2020-01-07T01:37:45.571Z] [runtime-status] [10644] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-01-07T01:37:45.577Z] [runtime-status] [10644] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-01-07T01:37:45.581Z] [runtime-status] [10644] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:37:45.585Z] [runtime-status] [10644] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Memegalleries\\meme-galleries\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-01-07T01:37:45.698Z] [runtime-status] [10644] Trigger "Admins" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "Admins"
+[debug] [2020-01-07T01:37:45.700Z] [runtime-status] [10644] triggerDefinition {"httpsTrigger":{},"name":"Admins","entryPoint":"Admins"}
+[debug] [2020-01-07T01:37:45.701Z] [runtime-status] [10644] Running Admins in mode HTTPS
+[debug] [2020-01-07T01:37:45.708Z] [runtime-status] [10644] Attempting to listen to socketPath: \\?\pipe\C:\Memegalleries\meme-galleries\functions\10644
+[debug] [2020-01-07T01:37:45.719Z] [functions] Runtime ready! Sending request!
+[debug] [2020-01-07T01:37:45.742Z] [runtime-status] [10644] Ephemeral server handling GET request
+[debug] [2020-01-07T01:37:45.857Z] [runtime-status] [10644] Ephemeral server survived.
+[info] >  Error updating user: FirebaseAppError: Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".
+[info] >      at FirebaseAppError.FirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+[info] >      at FirebaseAppError.PrefixedFirebaseError [as constructor] (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+[info] >      at new FirebaseAppError (C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\utils\error.js:123:28)
+[info] >      at C:\Memegalleries\meme-galleries\functions\node_modules\firebase-admin\lib\firebase-app.js:121:23
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+[info] >    errorInfo: {
+[info] >      code: 'app/invalid-credential',
+[info] >      message: 'Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "Error fetching access token: Error while making request: getaddrinfo ENOTFOUND metadata.google.internal. Error code: ENOTFOUND".'
+[info] >    },
+[info] >    codePrefix: 'app'
+[info] >  }
