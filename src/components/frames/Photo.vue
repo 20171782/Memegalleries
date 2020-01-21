@@ -1,7 +1,7 @@
 <template>
 
     <div>
-        fdsf
+
         <div v-for="item in comments">
             {{item}}<br><br>
             Count: {{getLikeCount(item)}}
