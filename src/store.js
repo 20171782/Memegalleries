@@ -92,7 +92,8 @@ export default new Vuex.Store({
     loading: null,
     error:null,
     readMessages: [],
-    singleMemes: []
+    singleMemes: [],
+    likes:[]
   },
   mutations: {
     PROFILE(state, payload) {
@@ -128,10 +129,25 @@ export default new Vuex.Store({
     },
     singleMeme(state, payload) {
       state.singleMemes = payload;
-    }
+    },
+    fetchLikes(state, payload) {
+      state.likes = payload;
+    },
   },
 
   actions: {
+
+    fetchLikes({ commit}, payload) {
+      db.collection("likes").onSnapshot(querySnapshot => {
+            querySnapshot.docChanges().forEach(change => {
+              if (change.type === "added") {
+                payload.push(change.doc.data());
+              }
+            });
+            commit("fetchLikes", payload);
+          });
+    },
+
     carousel({ commit, getters }, payload) {
       commit("loading", true);
       let me = getters.try;

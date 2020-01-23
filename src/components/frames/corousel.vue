@@ -19,19 +19,24 @@
           <router-link :to="'/start/' + image.Meme_id"
             ><img :src="image.image" style="border-radius: 10px" width="1500"
           /></router-link>
+
           <div
             style=""
             class="uk-overlay uk-overlay-primary uk-position-right uk-transition-slide-right "
           >
-              <p class="uk-margin-remove"> {{ image.name }}</p>
-              <p class="uk-margin-remove"> {{ image.timestamp|formatDate }}.</p>
-            <p class="uk-margin-remove">{{ image.title }}</p>
 
-            <p class="uk-margin-remove"> {{ image.description }}.</p>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-header"></i></span>{{image.title}}</li>
+              <li><span class="fa-li"><i class="fas fa-user"></i></span>{{image.name}}</li>
+              <li><span class="fa-li"><i class="fas fa-clock-o "></i></span>{{ image.timestamp|formatDate }}</li>
+              <li><span class="fa-li"><i class="fas fa-square"></i></span> {{ image.description|smallOne }} ...</li>
+              <li><span class="fa-li"><i class="fa fa-thumbs-up"></i></span> {{getLikeCount(image)}}</li>
+              <li><span class="fa-li"><i class="fa fa-thumbs-down"></i></span> {{getLikeCount(image)}}</li>
 
-            <p class="uk-margin-remove">{{ image.category }}</p>
-            <p class="uk-margin-remove btn btn-secondary"
-              @mouseover="messages(image.Meme_id)"
+            </ul>
+
+            <p class=" btn btn-secondary"
+              @click="messages(image.Meme_id)"
             style="background: #009b3a">
               View Comments<span uk-icon="icon: triangle-right"></span>
             </p>
@@ -61,7 +66,7 @@
       <div v-if="comments.length != 0">
         <h3 v-if="comments.length > 1">{{ comments.length }} Comments</h3>
         <h3 v-if="comments.length == 1">{{ comments.length }} Comment</h3>
-        <span class="fa fa-thumbs-up"> {{likes.length}}</span>
+
         <span class="fa fa-thumbs-down" style="margin-left: 18px"> {{dislikes.length}}</span>
         <hr />
 
@@ -139,40 +144,43 @@ export default {
   },
 
   methods: {
+
+    getLikeCount(item) {
+      var count = 0;
+      for (var item1 in this.likes) {
+        if (item.Meme_id === this.likes[item1].Meme_id) {
+          count = count + 1;
+        } else {
+        }
+      }
+      return count;
+    },
+
+
+
+
+
     messages(id) {
       this.comments = [];
-      this.likes=[],
-      this.dislikes=[]
+      this.likes = [],
+              this.dislikes = []
       db.collection("message")
-        .where("Meme_id", "==", id)
-        .onSnapshot(querySnapshot => {
-          querySnapshot.docChanges().forEach(change => {
-            if (change.type === "added") {
-              this.comments.push(change.doc.data());
-            }
-          });
-        });db.collection("likes")
-        .where("Meme_id", "==", id)
-        .onSnapshot(querySnapshot => {
-          querySnapshot.docChanges().forEach(change => {
-            if (change.type === "added") {
-              this.likes.push(change.doc.data());
-            }
-          });
-        });db.collection("dislikes")
-        .where("Meme_id", "==", id)
-        .onSnapshot(querySnapshot => {
-          querySnapshot.docChanges().forEach(change => {
-            if (change.type === "added") {
-              this.dislikes.push(change.doc.data());
-            }
-          });
-        });
-    }
-  },
+              .where("Meme_id", "==", id)
+              .onSnapshot(querySnapshot => {
+                querySnapshot.docChanges().forEach(change => {
+                  if (change.type === "added") {
+                    this.comments.push(change.doc.data());
+                  }
+                });
+              });
 
+
+    }
+
+  },
   created() {
     this.$store.dispatch("carousel", this.images);
+    this.$store.dispatch('fetchLikes',this.likes)
 
   }
 };
@@ -221,7 +229,7 @@ i {
   margin-right: 15px;
   font-size: 1.1em;
   margin-top: 5px;
-  color: #009b3a;
+
 }
 
 a {

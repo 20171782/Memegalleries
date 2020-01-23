@@ -64,40 +64,7 @@
           return count;
         }
       },
-        mounted() {
-          var self = this;
-          var tmp = {};
-          var tmp1 = [];
-            // console.log(self.comments)
-            this.$nextTick(function(){
 
-
-              console.log('Tick function')
-              for (let i = 0; i < tmp.length; i++) {
-                console.log('kkk');
-              }
-              for(var i in self.comments) {
-                console.log(i)
-              }
-            })
-
-            // for(let i in self.likes){
-            //     console.log(self.likes[i].Meme_id)
-            //     var likeArray = []
-            //     if(self.comments[i].Meme_id === self.likes[i].Meme_id){
-            //        var alias = self.comments[i].alias;
-            //     var name = self.comments[i].name;
-            //     likeArray.push(self.likes[i])
-            //         self.results.push({
-            //             alias:alias,
-            //             name:name,
-            //             likeArray:likeArray
-            //         })
-            //     }
-            //
-            //
-            // }
-        }
     }
 </script>
 

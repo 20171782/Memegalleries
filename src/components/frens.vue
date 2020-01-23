@@ -30,7 +30,7 @@
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-auto">
-                            <img class="" width="40" height="40" :src="requests.requesterImage">
+                            <img class="uk-border-circle" width="40" height="40" :src="requests.requesterImage">
                         </div>
                         <div class="uk-width-expand">
                             <router-link :to="'/profile/' + requests.myAlias " ><span class=" " style="color: black">{{requests.myAlias }}</span></router-link>
@@ -48,7 +48,7 @@
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid :id="requests.user_requested">
                         <div class="uk-width-auto">
-                            <img class="" width="40" height="40" :src="requests.user_requestedImage">
+                            <img class="uk-border-circle" width="40" height="40" :src="requests.user_requestedImage">
                         </div>
                         <div class="uk-width-expand">
                             <router-link :to="'/profile/' + requests.userRequestedAlias " ><span class=" " style="color: black">{{ requests.user_requestedName}}</span></router-link>
