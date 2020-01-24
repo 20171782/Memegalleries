@@ -11,13 +11,13 @@
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
       tabindex="-1"
-      uk-slideshow="autoplay: true; autoplay-interval: 4000;"
+      uk-slideshow="autoplay: true; autoplay-interval: 4000;ratio:7:3"
     >
       <ul class="uk-slideshow-items">
         <li v-for="image in images" :key="image.timestamp">
 
           <router-link :to="'/start/' + image.Meme_id"
-            ><img :src="image.image" style="border-radius: 10px" width="1500"
+            ><img :src="image.image" style="border-radius: 10px" 
           /></router-link>
 
           <div
@@ -31,7 +31,7 @@
               <li><span class="fa-li"><i class="fas fa-clock-o "></i></span>{{ image.timestamp|formatDate }}</li>
               <li><span class="fa-li"><i class="fas fa-square"></i></span> {{ image.description|smallOne }} ...</li>
               <li><span class="fa-li"><i class="fa fa-thumbs-up"></i></span> {{getLikeCount(image)}}</li>
-              <li><span class="fa-li"><i class="fa fa-thumbs-down"></i></span> {{getLikeCount(image)}}</li>
+              <li><span class="fa-li"><i class="fa fa-thumbs-down"></i></span> {{getdisLikeCount(image)}}</li>
 
             </ul>
 
@@ -155,6 +155,16 @@ export default {
       }
       return count;
     },
+    getdisLikeCount(item) {
+      var count = 0;
+      for (var item1 in this.dislikes) {
+        if (item.Meme_id === this.dislikes[item1].Meme_id) {
+          count = count + 1;
+        } else {
+        }
+      }
+      return count;
+    },
 
 
 
@@ -180,7 +190,8 @@ export default {
   },
   created() {
     this.$store.dispatch("carousel", this.images);
-    this.$store.dispatch('fetchLikes',this.likes)
+    this.$store.dispatch('fetchLikes',this.likes);
+    this.$store.dispatch('disLikes',this.dislikes);
 
   }
 };

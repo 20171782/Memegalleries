@@ -26,7 +26,7 @@
 
 
 
-        <div class=" jump uk-width-small uk-margin uk-align-center "><button style="width: 100%" type="button" class="btn btn-success">Meme Generator</button></div>
+        <div class=" jump uk-width-small uk-margin uk-align-center "><router-link to="/Generator"><button style="width: 100%" type="button" class="btn btn-success">Meme Generator</button></router-link></div>
 
 
 

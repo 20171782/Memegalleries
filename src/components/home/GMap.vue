@@ -73,7 +73,7 @@ export default {
   },
   mounted() {
     // UIkit.offcanvas('#offcanvas-usage').show()
-    // window.location.reload()
+
   },
   data() {
     return {
@@ -82,7 +82,9 @@ export default {
   },
   created() {
     this.$store.dispatch("IDs");
-  }
+
+  },
+
 };
 </script>
 

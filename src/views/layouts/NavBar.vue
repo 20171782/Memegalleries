@@ -141,6 +141,7 @@ export default {
     },
     home(){
       this.$router.push({name:'GMap',params:{id:'Animated'}})
+      window.location.reload()
     }
   },
   created() {
