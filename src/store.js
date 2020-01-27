@@ -94,7 +94,8 @@ export default new Vuex.Store({
     readMessages: [],
     singleMemes: [],
     likes:[],
-    dislikes:[]
+    dislikes:[],
+    comments:[]
   },
   mutations: {
     PROFILE(state, payload) {
@@ -137,10 +138,24 @@ export default new Vuex.Store({
    disLikes(state, payload) {
       state.dislikes = payload;
     },
+    fetchComments(state, payload){
+      state.comments = payload;
+    }
   },
 
   actions: {
 
+    fetchComment({ commit}, payload){
+      db.collection("message")
+          .onSnapshot(querySnapshot => {
+            querySnapshot.docChanges().forEach(change => {
+              if (change.type === "added") {
+                payload.push(change.doc.data());
+              }
+            });
+            commit("fetchComments", payload);
+          });
+    },
     fetchLikes({ commit}, payload) {
       db.collection("likes").onSnapshot(querySnapshot => {
             querySnapshot.docChanges().forEach(change => {

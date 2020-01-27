@@ -7,8 +7,7 @@ admin.initializeApp();
 const uid = 'gotf8EVRHZXAWjLTzs9HFe7hOxs1'
 
 exports.Admins = functions.https.onRequest((req, res) => {
-
-    re
+    
     // admin.auth().updateUser(uid, {
     //     email: 'modifiedUser@example.com',
     //     emailVerified: true,
