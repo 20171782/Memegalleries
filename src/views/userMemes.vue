@@ -18,18 +18,40 @@
                 <router-link :to="'/start/' + image.Meme_id"><img :src="image.image" alt=""></router-link>
             </div>
 
-            <div v-if="comment.Meme_id == image.Meme_id" v-for="comment in comments">
-              {{comment.message}}
-            </div>
-<!--            <div class="uk-card-body">-->
-<!--                <h3 class=""><b>Title:</b> {{image.title}}</h3>-->
-<!--                <p><b>Description:</b> {{image.description}}</p>-->
-<!--                <p><b>Category:</b> {{image.category}}</p>-->
-<!--                <p><b>Published:</b> {{image.timestamp|formatDate}}</p>-->
-<!--                <p><b>Comments:</b> {{image.counter}}</p>-->
-<!--                <p><b>likes:</b> {{image.likes}}</p>-->
-<!--                <p><b>dislikes:</b> {{image.dislikes}}</p>-->
-<!--            </div>-->
+          <div style="font-size: 1.3rem;" class="uk-card-body" >
+             <div uk-grid>
+                 <div><span><i class="fa fa-thumbs-up"></i>{{getLikeCount(image)}}</span></div>
+                 <div><span><i class="fa fa-thumbs-down"></i>{{getdisLikeCount(image)}}</span></div>
+                 <div><span><i class="fa fa-comments"></i>{{getCommentsCount(image)}}</span></div>
+             </div>
+
+              <div class="uk-margin-top" v-for="comment in getComments(image)">
+                  <div class="row">
+                      <div class="col-sm-1">
+                          <div  v-if="comment.pic" class=" ">
+                              <img style="border-radius: 50%;width: 50px;height: 50px;border: 3px solid #fed100" class="img-responsive uk-border-circle" :src="comment.pic">
+                          </div>
+                          <div v-else class="">
+                              <img style="border-radius: 50%;width: 50px;height: 50px;border: 3px solid #fed100" class="img-responsive uk-border-circle" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                          </div>
+                      </div>
+
+                      <div class="col-sm-9">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <strong>{{comment.name}}</strong> | <span class="text-muted">{{comment.time|formatDate}}</span>
+                              </div>
+                              <div class="panel-body">
+                                  {{comment.message}}
+                              </div><!-- /panel-body -->
+                          </div><!-- /panel panel-default -->
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+
         </div>
     </div>
 
@@ -51,6 +73,7 @@
                 images:[],
                 comments:[],
                 likes:[],
+              dislikes:[],
                 id:this.$route.params.id
             };
         },
@@ -58,14 +81,67 @@
             Goto(id) {
                 this.$router.push({ name: "GetStarted", params: { id: id } });
                 window.location.reload();
+            },
+
+          getLikeCount(item) {
+            var count = 0;
+            for (var item1 in this.likes) {
+              if (item.Meme_id === this.likes[item1].Meme_id) {
+                count = count + 1;
+              } else {
+              }
             }
+            return count;
+          },
+          getdisLikeCount(item) {
+            var count = 0;
+            for (var item1 in this.dislikes) {
+              if (item.Meme_id === this.dislikes[item1].Meme_id) {
+                count = count + 1;
+              } else {
+              }
+            }
+            return count;
+          },
+          getcommentCount(item) {
+            var count = 0;
+            for (var item1 in this.comments) {
+              if (item.Meme_id === this.comments[item1].Meme_id) {
+                count = count + 1;
+              } else {
+              }
+            }
+            return count;
+          },
+          getComments(item) {
+            var comments = [];
+            for (var item1 in this.comments) {
+              if (item.Meme_id === this.comments[item1].Meme_id) {
+                comments.push(this.comments[item1]);
+              } else {
+              }
+            }
+            return comments;
+          },
+          getCommentsCount(item) {
+            var count = 0;
+            for (var item1 in this.dislikes) {
+              if (item.Meme_id === this.comments[item1].Meme_id) {
+                count = count + 1;
+              } else {
+              }
+            }
+            return count;
+          },
         },
         computed: {
             ...mapGetters(["loading"]),
 
         },
         created() {
-            // this.$store.dispatch("ViewImages");
+          this.$store.dispatch('fetchLikes',this.likes);
+          this.$store.dispatch('disLikes',this.dislikes);
+          this.$store.dispatch('fetchComment',this.comments);
             db.collection('Memes')
                 .onSnapshot(querySnapshot => {
                     querySnapshot.docChanges().forEach(change => {
@@ -75,23 +151,7 @@
 
                     });
                 });
-            db.collection('message')
-                .onSnapshot(querySnapshot => {
-                    querySnapshot.docChanges().forEach(change => {
-                        if (change.type === 'added') {
-                            this.comments.push(change.doc.data());
-                        }
 
-                    });
-                }); db.collection('likes')
-                .onSnapshot(querySnapshot => {
-                    querySnapshot.docChanges().forEach(change => {
-                        if (change.type === 'added') {
-                            this.likes.push(change.doc.data());
-                        }
-
-                    });
-                });
         }
     };
 </script>
@@ -107,4 +167,8 @@
         border: 5px solid #e9ebee ;
 
     }
+    .padding{
+        padding:5px 5px 5px 10px
+    }
+
 </style>
