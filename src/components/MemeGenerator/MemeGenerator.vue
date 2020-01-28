@@ -1,6 +1,5 @@
 <template>
     <div  class="top ">
-<navbar></navbar>
         <top></top>
         <div class="uk-container uk-text-center upper">
 
