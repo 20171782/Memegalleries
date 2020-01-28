@@ -131,13 +131,54 @@
               <li><span class="fa-li"><i class="fas fa-square"></i></span> {{ image.description|smallOne }} ...</li>
               <li><span class="fa-li"><i class="fa fa-thumbs-up"></i></span> {{getLikeCount(image)}}</li>
               <li><span class="fa-li"><i class="fa fa-thumbs-down"></i></span> {{getdisLikeCount(image)}}</li>
-              <li></li>
+              <li><span class="fa-li"><i class="fa fa-comments"></i></span>{{getcommentCount(image)}}</li>
+              <li><span class="fa-li"></span ><span uk-icon="chevron-down"></span><a  :href="'#' + image.Meme_id " uk-toggle>view comments</a></li>
+
 
             </ul>
 
-            <b-button class="uk-margin"  v-b-popover.hover.right="'I am popover directive content!'" title="Popover Title">
-              Hover Me
-            </b-button>
+            <div :id="image.Meme_id" class="uk-modal-container" uk-modal>
+              <div class="uk-modal-dialog uk-modal-body" uk-overflow-auto>
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                <h4 class="uk-heading-line uk-heading-bullet"><span>{{getcommentCount(image)}} Comments</span></h4>
+                <div uk-grid>
+                  <div>
+                    <p><i class="fa fa-thumbs-up"></i> {{getLikeCount(image)}}</p>
+                  </div>
+                  <div>
+                    <p><i class="fa fa-thumbs-down"></i>{{getdisLikeCount(image)}}</p>
+                  </div>
+                </div>
+
+
+
+                <div class="uk-margin-top" v-for="comment in getComments(image)">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      <div  v-if="comment.pic" class=" ">
+                        <img style="border-radius: 50%;width: 50px;height: 50px;border: 3px solid #fed100" class="img-responsive uk-border-circle" :src="comment.pic">
+                      </div>
+                      <div v-else class="">
+                        <img style="border-radius: 50%;width: 50px;height: 50px;border: 3px solid #fed100" class="img-responsive uk-border-circle" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                      </div>
+                    </div>
+
+                    <div class="col-sm-9">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <strong>{{comment.name}}</strong> | <span class="text-muted">{{comment.time|formatDate}}</span>
+                        </div>
+                        <div class="panel-body">
+                         {{comment.message}}
+                        </div><!-- /panel-body -->
+                      </div><!-- /panel panel-default -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
 
           </div>
@@ -150,12 +191,7 @@
 
     </div>
 
-    <div v-for="image in images">
-      <div v-for="comment in getComments(image)">
-        {{comment.message}}
-        <img width="50"  height="50" class="uk-border-circle" :src="comment.pic" alt="" />
-      </div>
-    </div>
+
 
 
 
@@ -216,6 +252,16 @@ export default {
       }
       return count;
     },
+    getcommentCount(item) {
+      var count = 0;
+      for (var item1 in this.dislikes) {
+        if (item.Meme_id === this.comments[item1].Meme_id) {
+          count = count + 1;
+        } else {
+        }
+      }
+      return count;
+    },
     getComments(item) {
       var comments = [];
       for (var item1 in this.dislikes) {
@@ -262,12 +308,7 @@ getCommentsCount(item) {
 </script>
 
 <style scoped>
-.login {
-  max-width: 70%;
-  margin-top: 10px;
-  margin-left: 160px;
-  max-height: 100% !important;
-}
+
 .uk-slideshow-items img {
   width: 900px;
   height: 900px;
@@ -275,53 +316,35 @@ getCommentsCount(item) {
   /*height:400px !important;*/
   border: 4px solid white;
 }
-.uk-dropdown-nav {
-  width: 500px;
+
+.thumbnail {
+  padding:0px;
 }
-.rcorners {
-  border-radius: 25px;
-  background: #73ad21;
-  padding: 20px;
-  width: 400px;
-  height: 115px;
-  color: black;
+.panel {
+  position:relative;
 }
-.tests {
-  color: blue;
-  font-size: 0.7em;
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+  position:absolute;
+  top:11px;left:-16px;
+  right:100%;
+  width:0;
+  height:0;
+  display:block;
+  content:" ";
+  border-color:transparent;
+  border-style:solid solid outset;
+  pointer-events:none;
 }
-.col {
-  color: white;
+.panel>.panel-heading:after{
+  border-width:7px;
+  border-right-color:#f7f7f7;
+  margin-top:1px;
+  margin-left:2px;
+}
+.panel>.panel-heading:before{
+  border-right-color:#ddd;
+  border-width:8px;
 }
 
-.first {
-  margin-left: 6%;
-}
-.me {
-  margin-left: 76%;
-}
-i {
-  margin-right: 15px;
-  font-size: 1.1em;
-  margin-top: 5px;
-
-}
-
-a {
-  font-size: 1.1em;
-}
-.fa fa-thumbs-up {
-  color: blue;
-}
-.uk-width-auto img {
-  width: 45px;
-  max-height: 45px;
-}
-.uk-comment-body p {
-  display: inline-block;
-}
-  .uk-width-medium p{
-    padding-bottom: 6px;
-  }
 
 </style>
