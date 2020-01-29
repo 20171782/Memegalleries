@@ -1,8 +1,8 @@
 <template>
     <div class="" >
-<div v-for="image in images" >
+<div v-for="image in images" :key="image.Meme_id">
     <div>
-        <div class="card">
+        <div class="card uk-margin-top">
             <div class="uk-card-header">
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
@@ -25,29 +25,42 @@
                  <div><span><i class="fa fa-comments"></i>{{getCommentsCount(image)}}</span></div>
              </div>
 
-              <div class="uk-margin-top" v-for="comment in getComments(image)">
-                  <div class="row">
-                      <div class="col-sm-1">
-                          <div  v-if="comment.pic" class=" ">
-                              <img style="border-radius: 50%;width: 50px;height: 50px;border: 3px solid #fed100" class="img-responsive uk-border-circle" :src="comment.pic">
-                          </div>
-                          <div v-else class="">
-                              <img style="border-radius: 50%;width: 50px;height: 50px;border: 3px solid #fed100" class="img-responsive uk-border-circle" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                          </div>
-                      </div>
 
-                      <div class="col-sm-9">
-                          <div class="panel panel-default">
-                              <div class="panel-heading">
-                                  <strong>{{comment.name}}</strong> | <span class="text-muted">{{comment.time|formatDate}}</span>
+              <ul uk-accordion class="uk-margin-top">
+                  <li>
+                      <a class="uk-accordion-title uk-text-primary" uk-icon="chevron-down" href="#" >Read Comments</a>
+                      <div class="uk-accordion-content">
+                          <div class="uk-margin-top" v-for="comment in getComments(image)">
+                              <div class="row">
+                                  <div class="col-sm-1">
+                                      <div  v-if="comment.pic" class=" ">
+                                          <img class="uk-width-auto  img-responsive uk-border-circle" :src="comment.pic">
+                                      </div>
+                                      <div v-else class="">
+                                          <img  class=" uk-width-auto img-responsive uk-border-circle" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                                      </div>
+                                  </div>
+
+                                  <div class="col-sm-9">
+                                      <div class="panel panel-default">
+                                          <div class="panel-heading">
+                                              <strong>{{comment.name}}</strong> | <span class="text-muted">{{comment.time|formatDate}}</span>
+                                          </div>
+                                          <div class="panel-body">
+                                              {{comment.message}}
+                                          </div><!-- /panel-body -->
+                                      </div><!-- /panel panel-default -->
+                                  </div>
                               </div>
-                              <div class="panel-body">
-                                  {{comment.message}}
-                              </div><!-- /panel-body -->
-                          </div><!-- /panel panel-default -->
+                          </div>
                       </div>
-                  </div>
-              </div>
+                  </li>
+              </ul>
+
+
+
+
+
 
 
           </div>
@@ -103,16 +116,16 @@
             }
             return count;
           },
-          getcommentCount(item) {
-            var count = 0;
-            for (var item1 in this.comments) {
-              if (item.Meme_id === this.comments[item1].Meme_id) {
-                count = count + 1;
-              } else {
-              }
-            }
-            return count;
-          },
+            getCommentsCount(item) {
+                var count = 0;
+                for (var item1 in this.comments) {
+                    if (item.Meme_id === this.comments[item1].Meme_id) {
+                        count = count + 1;
+                    } else {
+                    }
+                }
+                return count;
+            },
           getComments(item) {
             var comments = [];
             for (var item1 in this.comments) {
@@ -125,7 +138,7 @@
           },
           getCommentsCount(item) {
             var count = 0;
-            for (var item1 in this.dislikes) {
+            for (var item1 in this.comments) {
               if (item.Meme_id === this.comments[item1].Meme_id) {
                 count = count + 1;
               } else {
@@ -133,6 +146,11 @@
             }
             return count;
           },
+            show(){
+                if(this.app == true){
+                    return this.app = true
+                }
+            }
         },
         computed: {
             ...mapGetters(["loading"]),

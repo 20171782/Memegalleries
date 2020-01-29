@@ -1,9 +1,9 @@
 <template>
- <div>
-     <div >
+ <div class="uk-section-muted">
+     <div  class="uk-container">
          <div> <pro></pro></div>
 
-       <div class="" >
+       <div class="uk-margin-top uk-align-center" >
            <ul uk-tab="" uk-grid>
                <li><a href="#" uk-icon="image" > </a></li>
                <li><a href="#" uk-icon="camera"></a></li>
