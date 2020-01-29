@@ -28,7 +28,8 @@
 
               <ul uk-accordion class="uk-margin-top">
                   <li>
-                      <a class="uk-accordion-title uk-text-primary" uk-icon="chevron-down" href="#" >Read Comments</a>
+                      <a  v-if="getCommentsCount(image) != 0" class="uk-accordion-title uk-text-primary" uk-icon="chevron-down" href="#" >Read Comments</a>
+                      <a  v-else class="uk-accordion-title uk-text-primary"  href="#" >No Comments</a>
                       <div class="uk-accordion-content">
                           <div class="uk-margin-top" v-for="comment in getComments(image)">
                               <div class="row">
