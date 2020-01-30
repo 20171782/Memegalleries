@@ -31,12 +31,35 @@
 
               <div class="uk-margin-top uk-align-center" >
                   <ul uk-tab="" uk-grid>
+                      <li><a href="#" uk-icon="user"></a></li>
                       <li><a href="#" uk-icon="image" > </a></li>
                       <li><a href="#" uk-icon="camera"></a></li>
-                      <li><a href="#" >Big Up</a></li>
+
                   </ul>
 
                   <ul class="uk-switcher uk-margin">
+
+                      <li>
+                          <div>
+                              <div class="icon">
+                                  <h4 class="uk-heading-bullet">Contact Information</h4>
+                                  <p><i class="fa fa-fa fa-envelope-open"></i> {{test.email}}</p>
+                                  <p><i class="fa fa-phone-square"></i> {{test.phone}}</p>
+
+
+                                  <h4 class="uk-heading-bullet" style="margin-top: 50px">General Information</h4>
+                                  <p><i class="fa fa-users"></i> {{test.stat}}</p>
+                                  <p><i class="fa fa-briefcase"></i> {{test.job}}</p>
+                                  <p v-if="test.gender[0]=='male'"><i class="fa fa-male"></i> {{test.gender[0]}}</p>
+                                  <p v-if="test.gender[0]=='female'"><i class="fa fa-female"></i> {{test.gender[0]}}</p>
+
+                                  <p><i class="fa fa-user"></i>  {{test.name}}</p>
+                                  <p><i class="fa fa-hourglass-2"></i>  {{test.age}} years old</p>
+                                  <p><i class="fa fa-map"></i>{{test.address}}</p>
+
+                              </div>
+                          </div>
+                      </li>
                       <li  >
                           <div >
                               <div   class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
@@ -79,44 +102,17 @@
 
                       </li>
 
-
-
-
-
-
-
-
-
-
-
-
-
                       <li><testing></testing></li>
-                      <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+
+
+
+
                   </ul>
               </div>
 
 
 
-<!--              <div>-->
-<!--                  <div >-->
-<!--                      <h4 class="uk-heading-bullet">Contact Information</h4>-->
-<!--                      <p><i class="fa fa-fa fa-envelope-open"></i> {{test.email}}</p>-->
-<!--                      <p><i class="fa fa-phone-square"></i> {{test.phone}}</p>-->
 
-
-<!--                      <h4 class="uk-heading-bullet" style="margin-top: 50px">General Information</h4>-->
-<!--                      <p><i class="fa fa-users"></i> {{test.stat}}</p>-->
-<!--                      <p><i class="fa fa-briefcase"></i> {{test.job}}</p>-->
-<!--                      <p v-if="test.gender[0]=='male'"><i class="fa fa-male"></i> {{test.gender[0]}}</p>-->
-<!--                      <p v-if="test.gender[0]=='female'"><i class="fa fa-female"></i> {{test.gender[0]}}</p>-->
-
-<!--                      <p><i class="fa fa-user"></i>  {{test.name}}</p>-->
-<!--                      <p><i class="fa fa-hourglass-2"></i>  {{test.age}} years old</p>-->
-<!--                      <p><i class="fa fa-map"></i>{{test.address}}</p>-->
-
-<!--                  </div>-->
-<!--              </div>-->
           </div>
       </div>
   </div>
@@ -247,5 +243,7 @@ ID(){
         width:500px;
         border-radius: 5px;
     }
-
+.icon i{
+    color:green;
+}
 </style>

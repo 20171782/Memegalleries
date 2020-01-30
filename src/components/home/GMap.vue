@@ -1,27 +1,7 @@
 <template>
   <div  >
-<!--    <div  class="uk-visible@m uk-child-width-1-3@m  uk-grid-divider uk-margin-remove"   uk-grid>-->
-<!--       <div>-->
-<!--         <div class="uk-card uk-align-center">-->
-<!--           <Grid></Grid>-->
-<!--         </div>-->
-<!--       </div>-->
-<!--       <div class="" >-->
-<!--         <div class="scroll" style="height: 500px;overflow: auto;" >-->
-<!--           <cor></cor>-->
-<!--           <userMemes></userMemes>-->
-<!--         </div>-->
-<!--       </div>-->
-<!--       <div>-->
-<!--         <div class="uk-card ">-->
-<!--           <frens></frens>-->
-<!--         </div>-->
-<!--       </div>-->
 
-<!--     </div>-->
-
-
-      <div  class="row ">
+      <div  class="row uk-grid-divider">
           <div class="col-md-3 ">
               <div class="uk-card  ">
                   <Grid></Grid>
@@ -29,7 +9,7 @@
 
           </div>
           <div class="col-md-6" >
-              <div class="scroll" style="height: 500px;overflow: auto;" >
+              <div class="scroll" style="height: 700px;overflow: auto;" >
                   <cor></cor>
                   <userMemes></userMemes>
               </div>
@@ -48,6 +28,7 @@
 
      </div>
    </div>
+
     <div class="uk-hidden@m">
       <Grid></Grid>
       <cor></cor>
@@ -62,7 +43,7 @@
 import cor from "@/components/frames/corousel";
 import but from "@/components/frames/buttons";
 import about from "@/components/pages/about";
-
+import { mapGetters } from "vuex";
 export default {
   name: "GMap",
   props: ["alias"],
@@ -71,6 +52,9 @@ export default {
     but,
     about
   },
+    computed: {
+        ...mapGetters(["loading"]),
+    },
   mounted() {
     // UIkit.offcanvas('#offcanvas-usage').show()
 

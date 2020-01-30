@@ -1,5 +1,5 @@
 <template>
-    <div class=" "  >
+    <div class="uk-align-right "  >
         <div class="uk-card-header" v-if="frens.length !=0 || Friends.length !=0">
 
             <!--  For who sends fren request -->
@@ -153,7 +153,15 @@ button {
 
 
 }
+img {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    /*border: 5px solid #fed100 ;*/
 
+}
 
 input{
     background-color: #e9ebee;

@@ -1,7 +1,8 @@
 <template>
 
-  <div class="uk-margin-top">
-    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: 7:3; animation: push">
+  <div class="uk-margin-top margin">
+
+    <div  class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="autoplay: true;autoplay-interval: 6000;ratio:6:3; animation: scale">
 
       <ul class="uk-slideshow-items">
         <li v-for="image in images">
@@ -236,5 +237,7 @@ getCommentsCount(item) {
   border-width:8px;
 }
 
-
+.margin{
+  margin-left: 90px;
+}
 </style>

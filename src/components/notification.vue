@@ -7,7 +7,7 @@
                   <span class="" ><img :src=" '/' + images " alt=""><span style="position:relative;top:-15px;left:-10px;margin-top: 5px;background-color: #009b3a" class="uk-badge">{{Friends.length}}</span></span>
               </div>
               <div class="uk-width-auto">
-                  <span class="uk-text-bold uk-text-muted" style="">Alerts</span>
+                  <span class="uk-text-bold " style="">Alerts</span>
 <!--                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>-->
               </div>
           </div>
@@ -29,6 +29,7 @@
               <div></div>
 
           </div>
+          <hr>
       </div>
   </div>
 

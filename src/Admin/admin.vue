@@ -71,7 +71,7 @@
                  <div class="">
                      <div  v-for="message in Messages" :key="message.timestamp"  >
                          <div  v-if="message.user_from == id" >
-                           <div class="mint uk-card uk-card-hover  uk-card-body"  style="float:left ;background-color: #009b3a;padding:15px;margin: 15px;text-align: left ">
+                           <div class="mint  uk-card-hover  uk-card-body"  style="float:left ;background-color: #009b3a;padding:15px;margin: 15px;text-align: left ">
                                <article class="uk-comment">
                                    <header class="uk-comment-header uk-grid-small " uk-grid>
                                        <div class="uk-width-auto">
@@ -93,7 +93,7 @@
                        </div>
 
                         <div v-else   class="">
-                            <div class="mint uk-card uk-card-default uk-card-body" style="float:right;background-color:white;padding:15px;margin: 20px" >
+                            <div class="mint  uk-card-default uk-card-body" style="float:right;background-color:white;padding:15px;margin: 20px" >
                                 <article class="uk-comment">
                                     <header class="uk-comment-header uk-grid-small " uk-grid>
                                         <div class="uk-width-auto">
@@ -123,8 +123,6 @@
                      <div class="form-group uk-margin-remove-left" >
                          <input type="text" class="form-control"  v-model="msg">
                      </div>
-
-
                      <div class="uk-alert-danger" uk-alert v-show="feedback">
                          <a class="uk-alert-close" uk-close></a>
                          <p>{{feedback}}</p>
@@ -133,13 +131,7 @@
                          <a class="uk-alert-close" uk-close></a>
                          <p>{{success}}</p>
                      </div>
-
-
-
-
-
                      <button type="submit" class="btn btn-primary" :disabled="!Convo_ID">Submit</button>
-
                  </form>
              </div>
 
@@ -318,9 +310,8 @@ border-radius: 10px}
     background-image: url('https://cdn.pixabay.com/photo/2015/02/07/02/17/paper-626781_960_720.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100px;
     overflow: auto;
-
+    min-height: 1000px;
 }
 
 .form input{

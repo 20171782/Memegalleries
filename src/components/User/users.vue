@@ -2,7 +2,7 @@
     <div>
         <form class="uk-search uk-search-default">
             <span uk-search-icon></span>
-            <input id="users" class="uk-search-input" type="search" placeholder="Search..." style="width:250px" v-model="search" >
+            <input  id="users" class="uk-search-input " type="search" placeholder="Search..." style="width:250px;background-color: #e9ebee ;border-radius: 6px" v-model="search" >
         </form>
 
         <!--Pop Over shown here -->

@@ -1,5 +1,5 @@
 <template>
-    <div class="" >
+    <div class="margin" >
 <div v-for="image in images" :key="image.Meme_id">
     <div>
         <div class="card uk-margin-top">
@@ -189,5 +189,18 @@
     .padding{
         padding:5px 5px 5px 10px
     }
+   .margin{
+       margin-left: 90px;
+   }
+    .col-sm-1 img{
 
+       width: 50px;
+       height: 50px;
+       -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+       border-radius: 50%;
+
+
+
+    }
 </style>

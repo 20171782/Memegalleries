@@ -180,9 +180,9 @@ export default {
 
 i {
 
-  font-size: 1.5em;
-  color: #009b3a;
-  /*color: gray;*/
+  font-size: 1.4em;
+
+  color: black;
 
 }
 span{

@@ -1,18 +1,22 @@
 <template>
 
-    <div class=" " style="padding-top: 20px">
+    <div class=" uk-margin-top uk-align-right" >
         <h3 class="uk-text-center uk-text-bold">Explore</h3>
-
         <div class="uk-width-small  uk-margin uk-align-center "><pro></pro></div>
-<!--        <div class="uk-width-small  uk-margin uk-align-center"><sidebar></sidebar></div>-->
-
+        <hr>
         <div class=" uk-width-small  uk-margin uk-align-center"><notification></notification></div>
 
         <div class="uk-width-small uk-margin uk-align-center"><requests></requests></div>
-
+        <hr>
         <div class="uk-width-small uk-margin uk-align-center"><upload></upload></div>
-
-
+        <hr>
+        <div>
+            <router-link to="/admin"><div class="uk-width-small uk-margin uk-align-center">
+                <img src="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731__340.png" alt="">
+                <span class="uk-text-middle uk-text-bold" style="margin-left: 30px;color:black"> messages</span>
+            </div></router-link>
+        </div>
+        <hr>
         <div class="uk-width-small uk-margin uk-align-center">
             <div class="uk-grid-small uk-flex-middle" uk-grid>
                 <div class="uk-width-auto">
@@ -23,9 +27,8 @@
                 </div>
             </div>
         </div>
-
-
-
+        <hr>
+        <hr>
         <div class=" jump uk-width-small uk-margin uk-align-center "><router-link to="/Generator"><button style="width: 100%" type="button" class="btn btn-success">Meme Generator</button></router-link></div>
 
 

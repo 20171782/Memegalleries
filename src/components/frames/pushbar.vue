@@ -1,46 +1,16 @@
 <template>
     <div>
 
-        <a class="uk-button uk-button-default" href="#modal-container" uk-toggle>Open</a>
-
-        <div id="modal-container" class="uk-modal-container" uk-modal>
-            <div class="uk-modal-dialog uk-modal-body">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3>User Comment Example</h3>
-                        </div><!-- /col-sm-12 -->
-                    </div><!-- /row -->
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <div class="thumbnail">
-                                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-sm-1 -->
-
-                        <div class="col-sm-5">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <strong>myusername</strong> <span class="text-muted">commented 5 days ago</span>
-                                </div>
-                                <div class="panel-body">
-                                    Panel content gdfgk;f;jg g;klfdgjklfdjglkjfdlkgj fgl fdjlkgjdfkgjlkdf gkfdjgklfdjg kl
-                                </div><!-- /panel-body -->
-                            </div><!-- /panel panel-default -->
-                        </div><!-- /col-sm-5 -->
-
-
-
-
-                    </div><!-- /row -->
-
+        <div class="container">
+            <div class="fb-profile">
+                <img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/" alt="Profile image example"/>
+                <img align="left" class="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/9/" alt="Profile image example"/>
+                <div class="fb-profile-text">
+                    <h1>Eli Macy</h1>
+                    <p>Girls just wanna go fun.</p>
                 </div>
             </div>
-        </div>
-
-
-
+        </div> <!-- /container -->
 
 
     </div>
