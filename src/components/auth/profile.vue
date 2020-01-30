@@ -3,19 +3,7 @@
      <div  class="uk-container">
          <div> <pro></pro></div>
 
-       <div class="uk-margin-top uk-align-center" >
-           <ul uk-tab="" uk-grid>
-               <li><a href="#" uk-icon="image" > </a></li>
-               <li><a href="#" uk-icon="camera"></a></li>
-               <li><a href="#" >Big Up</a></li>
-           </ul>
 
-           <ul class="uk-switcher uk-margin">
-               <li><testing></testing></li>
-               <li><gal></gal></li>
-               <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
-           </ul>
-       </div>
      </div>
  </div>
 </template>

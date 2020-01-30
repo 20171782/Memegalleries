@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div >
       <div class="uk-container uk-margin-large-top">
           <div  v-for="test in crabs"  >
 
@@ -12,24 +12,89 @@
                 </div>
                   <div class="">
                       <h1 class="uk-heading-line uk-text-muted"><span>{{ID}}'s Profile</span></h1>
-                      <div class=" uk-margin-top" uk-grid>
-                          <div class="uk-text-bold">
-                              {{getMemeCount(test)}} Post
+                      <div class=" uk-margin-large-top" uk-grid>
+                          <div>
+                           <h5 class="uk-heading-bullet">{{getPointsCount(test)}} Post</h5>
                           </div>
                           <div>
-                            frens
+                            <h5 class="uk-heading-bullet" >frens</h5>
                           </div>
                           <div>
-                             Generated Memes
+                              <h5 class="uk-heading-bullet" >Generated Memes</h5>
                           </div>
                       </div>
-                      <h6 class="uk-margin-top">{{test.name}}</h6>
+                      <h6 class="uk-margin-large-top">{{test.name}}</h6>
                   </div>
 
 
               </div>
 
+              <div class="uk-margin-top uk-align-center" >
+                  <ul uk-tab="" uk-grid>
+                      <li><a href="#" uk-icon="image" > </a></li>
+                      <li><a href="#" uk-icon="camera"></a></li>
+                      <li><a href="#" >Big Up</a></li>
+                  </ul>
 
+                  <ul class="uk-switcher uk-margin">
+                      <li  >
+                          <div >
+                              <div   class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+                                  <div class="coupon  uk-text-center" v-for="(meme,index) in getMemes(test)" :key="index">
+                                      <div class="uk-inline-clip uk-transition-toggle uk-light" tabindex="0">
+                                          <img :src="meme.image" alt="">
+                                          <div class="uk-overlay-primary uk-position-cover"></div>
+                                          <div class="uk-position-center">
+                                              <div class="uk-transition-slide-top-small">
+                                                  <div style="color: white" class="uk-text-bold"  uk-grid>
+                                                      <div>
+                                                          <div>
+                                                             <i class="fa fa-thumbs-up"></i>
+                                                              <span class="uk-margin-remove-left uk-text-middle">{{getLikeCount(meme)}}</span>
+                                                        </div>
+                                                      </div>
+                                                      <div>
+                                                          <div>
+                                                             <i class="fa fa-thumbs-down"></i>
+                                                              <span class="uk-margin-remove-left uk-text-middle">{{getdisLikeCount(meme)}}</span>
+                                                        </div>
+                                                      </div>
+
+                                                      <div>
+                                                          <div>
+                                                             <i class="fa fa-comments"></i>
+                                                              <span class="uk-margin-remove-left uk-text-middle">{{getCommentsCount(meme)}}</span>
+                                                        </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                          </div>
+                                      </div>
+                                      <p class="uk-margin-small-top">Small Top + Bottom</p>
+                                  </div>
+
+                              </div>
+                          </div>
+
+                      </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <li><testing></testing></li>
+                      <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+                  </ul>
+              </div>
 
 
 
@@ -75,7 +140,11 @@ export default {
     return {
 
         crabs:[],
-        loadedMemes:[]
+        Memes:[],
+        likes:[],
+        dislikes:[],
+        comments:[]
+
 
 
     };
@@ -89,21 +158,63 @@ ID(){
 },
 
   methods: {
-      getMemeCount(item) {
+      getPointsCount(item) {
           var count = 0;
-          for (var item1 in this.loadedMemes) {
-              if (item.id === this.loadedMemes[item1].user_id) {
+          for (var item1 in this.Memes) {
+              if (item.id === this.Memes[item1].user_id) {
                   count = count + 1;
               } else {
               }
           }
           return count;
-      }
+      },
+      getMemes(item) {
+          var userMemes = [];
+          for (var item1 in this.Memes) {
+              if (item.id === this.Memes[item1].user_id) {
+                  userMemes.push(this.Memes[item1]);
+              } else {
+              }
+          }
+          return userMemes;
+      },
+      getLikeCount(item) {
+          var count = 0;
+          for (var item1 in this.likes) {
+              if (item.Meme_id === this.likes[item1].Meme_id) {
+                  count = count + 1;
+              } else {
+              }
+          }
+          return count;
+      },
+      getdisLikeCount(item) {
+          var count = 0;
+          for (var item1 in this.dislikes) {
+              if (item.Meme_id === this.dislikes[item1].Meme_id) {
+                  count = count + 1;
+              } else {
+              }
+          }
+          return count;
+      },
+      getCommentsCount(item) {
+          var count = 0;
+          for (var item1 in this.dislikes) {
+              if (item.Meme_id === this.comments[item1].Meme_id) {
+                  count = count + 1;
+              } else {
+              }
+          }
+          return count;
+      },
   },
   created() {
      this.$store.dispatch('ViewProfiles',this.crabs)
-     this.$store.dispatch('loadMemes',this.loadedMemes)
-
+     this.$store.dispatch('loadMemes',this.Memes)
+      this.$store.dispatch('fetchLikes',this.likes);
+      this.$store.dispatch('disLikes',this.dislikes);
+      this.$store.dispatch('fetchComment',this.comments);
 
 
 
@@ -113,7 +224,7 @@ ID(){
 
 <style scoped>
 
-    img {
+    .col-md-4 img {
         width: 200px;
         height: 200px;
         -webkit-border-radius: 50%;
@@ -128,9 +239,13 @@ ID(){
   i{margin-right: 15px;
       font-size: 1.5em;
       margin-top: 5px;
-      color: #009b3a;
+      color: white;
   }
 
-
+    .uk-inline-clip img{
+        height:250px;
+        width:500px;
+        border-radius: 5px;
+    }
 
 </style>
