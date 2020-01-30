@@ -1,5 +1,6 @@
 <template>
-  <div  >
+  <div>
+    <div class="uk-container-large" >
 
       <div  class="row uk-grid-divider">
           <div class="col-md-3 ">
@@ -19,7 +20,7 @@
                   <frens></frens>
               </div>
           </div>
-      </div>
+      </div></div>
    <div style=" background: #e9ebee;max-height: 1000px">
      <hr class="uk-margin-remove">
      <div >
