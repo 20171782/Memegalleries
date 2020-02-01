@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div class="uk-container-large" >
+    <div class="container-fluid" >
 
-      <div  class="row uk-grid-divider">
-          <div class="col-md-3 ">
+      <div  class="row col-md-12  uk-grid-divider">
+          <div class="col-md-2 ">
               <div class="uk-card  ">
                   <Grid></Grid>
               </div>
 
           </div>
-          <div class="col-md-6" >
+          <div class="col-md-5" >
               <div class="scroll" style="height: 700px;overflow: auto;" >
                   <cor></cor>
                   <userMemes></userMemes>
@@ -20,7 +20,15 @@
                   <frens></frens>
               </div>
           </div>
-      </div></div>
+
+          <div class="col-md-2">
+             <div class="uk-text-center">
+                 jkfjsfjsfl
+             </div>
+          </div>
+      </div>
+
+    </div>
    <div style=" background: #e9ebee;max-height: 1000px">
      <hr class="uk-margin-remove">
      <div >

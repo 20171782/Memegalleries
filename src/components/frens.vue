@@ -1,5 +1,5 @@
 <template>
-    <div class="margin"  >
+    <div class="margin uk-align-right"  >
         <div class="uk-card-header" v-if="frens.length !=0 || Friends.length !=0">
 
             <!--  For who sends fren request -->
@@ -167,6 +167,6 @@ input{
     background-color: #e9ebee;
 }
 .margin{
-    margin-left:40px
+    /*margin-left:40px*/
 }
 </style>

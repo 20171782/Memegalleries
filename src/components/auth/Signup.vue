@@ -20,16 +20,26 @@
 <!--            </li>-->
 <!--          </ul>-->
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div >
               <h3 class="register-heading">Signup today</h3>
               <div class="row register-form">
                 <div class="col-md-6">
                   <div class="form-group">
                     <input type="text" class="form-control" placeholder="Email *" v-model="email" />
                   </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password *" v-model="password" />
+
+
+                  <div class="input-group mb-3">
+                    <input :type="passwordField" class="form-control" v-model="password" >
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                            <span v-if="passwordField === 'password'" @click="visibility" class="glyphicon glyphicon-eye-open"></span>
+                            <span v-else @click="visibility" class="glyphicon glyphicon-eye-close"></span>
+                      </span>
+                    </div>
                   </div>
+
+
                   <div class="form-group">
                     <input  class="form-control" placeholder="Your Phone *" v-model.number="number" type="number">
                   </div>
@@ -115,6 +125,7 @@
 <!--                  <div class="form-group">-->
 <!--                    <input type="text" class="form-control" placeholder="`Answer *" value="" />-->
 <!--                  </div>-->
+
             <div class="form-group">
               <button @click="signup"class="btnRegister">Signup</button>
             </div>
@@ -187,10 +198,14 @@ export default {
       alias: null,
       number:null,
       feedback: null,
-      slug: null
+      slug: null,
+      passwordField:'password',
     };
   },
   methods: {
+    visibility(){
+          this.passwordField = this.passwordField === 'password' ? 'text':'password'
+    },
     signup() {
       if (this.alias && this.email && this.password) {
         this.slug = slugify(this.alias, {
