@@ -1,12 +1,12 @@
 <template>
     <div class="margin" >
-<div v-for="image in images" :key="image.Meme_id">
-    <div>
+<div v-for="image in images" :key="image.Meme_id" >
+    <div >
         <div class="card uk-margin-top">
             <div class="uk-card-header">
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="40" height="20" :src="image.Photo">
+                    <div class="uk-width-auto " tabindex="0">
+                        <img class=" uk-border-circle" width="40" height="20" :src="image.Photo">
                     </div>
                     <div class="uk-width-expand">
                         <p class="uk-text-bold uk-margin-remove-bottom">{{image.name}}</p>
@@ -14,8 +14,8 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-card-media-top">
-                <router-link :to="'/start/' + image.Meme_id"><img :src="image.image" alt=""></router-link>
+            <div class="uk-card-media-top uk-inline-clip uk-transition-toggle">
+                <router-link :to="'/start/' + image.Meme_id"><img class="uk-transition-scale-up uk-transition-opaque" :src="image.image" alt=""></router-link>
             </div>
 
           <div style="font-size: 1.3rem;" class="uk-card-body" >

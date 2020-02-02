@@ -27,11 +27,15 @@
                         <input type="text" class="form-control" placeholder="email" v-model="email">
 
                       </div>
-                      <div class="input-group form-group">
+                      <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            <span class="input-group-text">
+                                  <span v-if="passwordField === 'password'" @click="visibility" class="glyphicon glyphicon-eye-open"></span>
+                                  <span style="background: yellow" v-else @click="visibility" class="glyphicon glyphicon-eye-close"></span>
+                            </span>
                         </div>
-                        <input type="password" class="form-control" placeholder="password" v-model="password">
+                        <input :type="passwordField" class="form-control" v-model="password" placeholder="password">
+
                       </div>
                       <!--                <div class="row align-items-center remember">-->
                       <!--&lt;!&ndash;                  <input type="checkbox">Remember Me&ndash;&gt;-->
@@ -145,10 +149,14 @@ export default {
       email: null,
       password: null,
       feedback: null,
+      passwordField:'password',
 
     };
   },
   methods: {
+    visibility(){
+      this.passwordField = this.passwordField === 'password' ? 'text':'password'
+    },
     login() {
       if (this.password, this.email) {
        firebase.auth().signInWithEmailAndPassword( this.email,this.password,).then((cred)=>{
@@ -180,6 +188,7 @@ export default {
 </script>
 
 <style scoped>
+
   .first
   {
     background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
@@ -271,4 +280,8 @@ input:focus{
 .links a{
   margin-left: 4px;
 }
+  .input-group-append span{
+    background: #FFC312;
+    color:black
+  }
 </style>

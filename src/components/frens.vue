@@ -1,5 +1,5 @@
 <template>
-    <div class="margin uk-align-right"  >
+    <div class="uk-align-center"  >
         <div class="uk-card-header" v-if="frens.length !=0 || Friends.length !=0">
 
             <!--  For who sends fren request -->
@@ -147,12 +147,7 @@
 </script>
 
 <style scoped>
-button {
-    background-color: #009b3a;
-    /*background-color: #e9ebee;*/
 
-
-}
 img {
     width: 50px;
     height: 50px;
@@ -166,7 +161,5 @@ img {
 input{
     background-color: #e9ebee;
 }
-.margin{
-    /*margin-left:40px*/
-}
+
 </style>

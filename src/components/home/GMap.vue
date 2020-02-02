@@ -9,21 +9,26 @@
               </div>
 
           </div>
-          <div class="col-md-5" >
-              <div class="scroll" style="height: 700px;overflow: auto;" >
+          <div class="col-md-4" >
+              <div class="scroll" style="height: 600px;overflow: auto;" >
                   <cor></cor>
                   <userMemes></userMemes>
               </div>
           </div>
           <div class="col-md-3">
-              <div class="uk-card ">
+              <div class=" ">
                   <frens></frens>
               </div>
           </div>
 
-          <div class="col-md-2">
-             <div class="uk-text-center">
-                 jkfjsfjsfl
+          <div class="col-md-3">
+             <div class="uk-container">
+                 <ul id="component-nav" class="uk-switcher">
+                     <li><MyProfile></MyProfile></li>
+                     <li><notiMess></notiMess></li>
+                     <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
+                 </ul>
+
              </div>
           </div>
       </div>
@@ -85,4 +90,5 @@ export default {
   .scroll::-webkit-scrollbar {
     display: none;
   }
+
 </style>

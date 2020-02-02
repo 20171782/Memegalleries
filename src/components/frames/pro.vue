@@ -4,10 +4,9 @@
            <div class="">
                <img
                        class="uk-border-circle"
-
                        :src="crab.image"
                />
-<!--               <span> {{ crab.name }}</span>-->
+
            </div>
 
        </div>

@@ -24,7 +24,7 @@ import request from '@/components/requests'
 import frens from '@/components/frens'
 import memeGenerator from '@/components/testing'
 import Gif from '@/components/Gif'
-import notification from '@/components/notification'
+import MyProfile from '@/ProfilePage/MyProfile.vue'
 import userMemes from '@/views/userMemes'
 import likes from "@/components/frames/likes";
 import timestamp from "./components/timestamp";
@@ -36,6 +36,8 @@ import testing from "./components/testing";
 import Generator from './components/MemeGenerator/MemeGenerator'
 import gal from "@/components/pages/gallery";
 import profile from "@/components/auth/profile.vue";
+import noti from "@/Notification/noti.vue";
+import notiMess from "@/Notification/notificationMessage.vue";
 import VueFirestore from 'vue-firestore'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
@@ -63,6 +65,7 @@ Vue.use(VueChatScroll)
 
 
 Vue.component('home',home)
+Vue.component('notiMess',notiMess)
 Vue.component('testing',testing)
 Vue.component('profiles',profiles)
 Vue.component('navbar',navbar)
@@ -80,7 +83,7 @@ Vue.component('new',news)
 Vue.component('loader',loader)
 Vue.component('requests',request)
 Vue.component('frens',frens)
-Vue.component('notification',notification)
+Vue.component('MyProfile',MyProfile)
 Vue.component('userMemes',userMemes)
 Vue.component('likes',likes)
 Vue.component('profileComment',profileComment)
@@ -95,6 +98,7 @@ Vue.component('Generator', Generator)
 Vue.component('users', users)
 Vue.component('gal', gal)
 Vue.component('profile',profile)
+Vue.component('noti',noti)
 import Grid from "./components/Grid";
 
 

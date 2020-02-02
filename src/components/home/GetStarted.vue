@@ -112,7 +112,7 @@ export default {
   height: 50px;
 }
 
-  .row{
-
+  .uk-section-muted{
+ min-height: 3500000px;
   }
 </style>
