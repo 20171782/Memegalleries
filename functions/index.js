@@ -6,8 +6,19 @@ admin.initializeApp();
 
 const uid = 'gotf8EVRHZXAWjLTzs9HFe7hOxs1'
 
-exports.Admins = functions.https.onRequest((req, res) => {
-    
+exports.Admins = functions.https.onCall((req, res) => {
+return admin.auth().getUserByEmail(data.email).then(user =>{
+    return admin.auth().setCustomUserClaims(user.uid,{
+        admin:true
+    })
+}).then(()=>{
+    return {
+        message:`Success! ${req.email} has been made an admin`
+    }
+}).catch(err =>{
+    return err
+})
+
     // admin.auth().updateUser(uid, {
     //     email: 'modifiedUser@example.com',
     //     emailVerified: true,

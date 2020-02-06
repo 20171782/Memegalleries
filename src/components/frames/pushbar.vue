@@ -1,6 +1,9 @@
 <template>
     <div>
-   <p >{{likes}}</p>
+        <h2>Admin Page</h2>
+        <form action="">
+            label
+        </form>
     </div>
 </template>
 

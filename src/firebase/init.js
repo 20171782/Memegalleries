@@ -18,5 +18,6 @@ var config = {
 
 
 const fb = firebase.firestore();
+ const functions = firebase.functions()
 
-export {fb}
+export {fb,functions}

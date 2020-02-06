@@ -14,21 +14,21 @@
 
 
 
-            <div uk-dropdown="mode: click" v-if="Friends.length != 0">
-                <div v-for="requests in Friends" class="uk-flex "  style="width: 450px">
-                    <div>
-                        <img
-                                class="uk-border-circle"
-                                width="40"
-                                height="40"
-                                :src="requests.user_requestedImage"
-                        />
-                    </div>
-                    <span style="color: #00c7ff;font-weight: bold" @click="checked(requests.request_id)">{{ requests.user_requestedName }}</span><span>{{msg}}</span><span style="color: red" @click="checked(requests.request_id)"><span class="uk-margin-small-right" uk-icon="check"></span></span>
-                </div>
-                <div></div>
+<!--            <div uk-dropdown="mode: click" v-if="Friends.length != 0">-->
+<!--                <div v-for="requests in Friends" class="uk-flex "  style="width: 450px">-->
+<!--                    <div>-->
+<!--                        <img-->
+<!--                                class="uk-border-circle"-->
+<!--                                width="40"-->
+<!--                                height="40"-->
+<!--                                :src="requests.user_requestedImage"-->
+<!--                        />-->
+<!--                    </div>-->
+<!--                    <span style="color: #00c7ff;font-weight: bold" @click="checked(requests.request_id)">{{ requests.user_requestedName }}</span><span>{{msg}}</span><span style="color: red" @click="checked(requests.request_id)"><span class="uk-margin-small-right" uk-icon="check"></span></span>-->
+<!--                </div>-->
+<!--                <div></div>-->
 
-            </div>
+<!--            </div>-->
 
         </div>
     </div>

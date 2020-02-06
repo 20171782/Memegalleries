@@ -2,7 +2,7 @@
   <div>
     <div class="container-fluid" >
 
-      <div  class="row col-md-12  uk-grid-divider">
+      <div  class="row col-md-12  ">
           <div class="col-md-2 ">
               <div class="uk-card  ">
                   <Grid></Grid>
