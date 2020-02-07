@@ -1,26 +1,37 @@
 <template>
-    <div>
+    <div  class="uk-text-center" @submit.prevent="AddToAmin">
         <h2>Admin Page</h2>
         <form action="">
-            label
+            <label for="">Email</label>
+            <input type="text" v-model="email">
+     <button  @click="AddToAmin">Make Admin</button>
         </form>
     </div>
 </template>
 
 <script>
-    import db from "@/firebase/init";
+    import functions from "@/firebase/init";
     import firebase from "firebase";
-    import test from '../../ResuableCode.js'
+
     export default {
-        mixins:[test],
+
         name: "pushbar",
         data(){
             return {
-                likes:[]
+                likes:[],
+                email:''
             }
         },
         methods:{
 
+            AddToAmin(){
+
+                const func = firebase.functions();
+             const adminRoles = func.httpsCallable('addAdminRole');
+                adminRoles({email:this.email}).then((result) =>{
+                    console.log(result)
+                })
+            }
         },
         computed:{
          GetLike(){
