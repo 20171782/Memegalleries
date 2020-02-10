@@ -21,9 +21,10 @@ import Grid from "./components/Grid";
 import MyProfile from '@/views/layouts/banner'
 import memeGenerator from '@/components/testing'
 import Generator from './components/MemeGenerator/MemeGenerator'
-import admin from '@/Admin/admin.vue'
+import message from '@/Message/Messages.vue'
 import push from '@/components/frames/pushbar.vue'
 import testing from '@/components/frames/Photo.vue'
+import admin from '@/Admin/admin.vue'
 
 
 Vue.use(Router);
@@ -124,15 +125,22 @@ const router = new Router({
       props: true
     },
     , {
-      path: "/admin",
-      name: "admin",
-      component: admin,
+      path: "/Messages",
+      name: "Messages",
+      component: message,
       props: true
     },{
       path: "/push",
       name: "push",
       component: push,
       props: true
+    },
+
+    {
+      path: "/admin",
+      name: "admin",
+      component: admin,
+
     },
   ]
 });

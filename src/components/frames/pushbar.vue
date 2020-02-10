@@ -18,8 +18,9 @@
         name: "pushbar",
         data(){
             return {
-                likes:[],
-                email:''
+
+                email:'',
+                admin:''
             }
         },
         methods:{
@@ -34,12 +35,12 @@
             }
         },
         computed:{
-         GetLike(){
-             return this.$store.state.likes
-         }
+       Admin(){
+           return this.$store.state.Admin
+       }
         },
         created() {
-            this.$store.dispatch('fetchLikes',this.likes)
+            this.$store.dispatch('IsAdmin')
         }
 
 

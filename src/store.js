@@ -96,9 +96,16 @@ export default new Vuex.Store({
     likes:[],
     dislikes:[],
     comments:[],
-    Memes:[]
+    Memes:[],
+    Admin:'',
+    UserProfile:[],
+    userInfo:[]
   },
   mutations: {
+    UserProfiles(state, payload) {
+      state.UserProfile.push(payload);
+    },
+
     PROFILE(state, payload) {
       state.profile.push(payload);
     },
@@ -144,10 +151,29 @@ export default new Vuex.Store({
     },
     loadedMemes(state, payload){
       state.Memes = payload;
+    } ,
+    makeAdmin(state, payload){
+      state.Admin = payload;
     }
   },
 
   actions: {
+
+    IsAdmin({ commit}, payload){
+
+      firebase.auth().onAuthStateChanged((user)=> {
+        if (user) {
+          user.getIdTokenResult().then(token =>{
+            console.log(token.claims.admin)
+            payload = token.claims.admin
+            commit('makeAdmin',payload)
+          })
+
+        } else {
+          // No user is signed in.
+        }
+      });
+    },
 
     loadMemes({ commit}, payload){
       db.collection("Memes")
@@ -292,6 +318,20 @@ export default new Vuex.Store({
     },
 
     //Read Profile Info
+    UserProfile({ commit}, payload) {
+      var user = firebase.auth().currentUser;
+      db.collection("Profile")
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            payload.push(doc.data());
+          });
+        })
+        .catch(error => {
+          console.log("Error getting documents: ", error);
+        });
+      commit("UserProfiles", payload);
+    },
     ViewProfiles({ commit,getters }, payload) {
       var user = firebase.auth().currentUser;
       var alias=getters.try

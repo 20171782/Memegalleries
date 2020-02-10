@@ -4,11 +4,12 @@
             <div  v-for="test in crabs"  >
 
                 <div class="uk-child-width-1-2@m" uk-grid>
-                    <div>
+                    <div class="image">
                         <img  :src="test.image" alt="Avatar" >
                     </div>
                     <div class="uk-margin-top">
                         <p class="uk-text-bold" >{{test.name}}</p>
+                        <h5 class="uk-heading-bullet">{{getPointsCount(test)}} Post</h5>
                         <p class="uk-text-bold" >frens</p>
                         <p class="uk-text-bold" >Memes</p>
                     </div>
@@ -29,7 +30,9 @@
 
 
 
-
+                <div v-if="Admin" class="uk-flex-inline uk-margin-top">
+                    <p ><img width="30" height="30" src="@/assets/admin.png" alt=""></p><span>Admin User</span>
+                </div>
                     <h4 class="uk-heading-bullet uk-margin-top">Contact Information</h4>
                     <p><i class="fa fa-fa fa-envelope-open"></i> {{test.email}}</p>
                     <p><i class="fa fa-phone-square"></i> {{test.phone}}</p>
@@ -61,10 +64,29 @@
         data(){
             return{
                 crabs:[],
+                Memes:[],
                 id:firebase.auth().currentUser.uid,
             }
         },
+        computed: {
+            Admin(){
+                return this.$store.state.Admin
+            }
+        },
+        methods:{
+            getPointsCount(item) {
+                var count = 0;
+                for (var item1 in this.Memes) {
+                    if (item.id === this.Memes[item1].user_id) {
+                        count = count + 1;
+                    } else {
+                    }
+                }
+                return count;
+            },
+        },
         created() {
+            this.$store.dispatch('loadMemes',this.Memes)
             db.collection("Profile")
                 .where('id','==',this.id)
                 .get()
@@ -84,7 +106,7 @@
 </script>
 
 <style scoped>
-    img {
+   .image img {
         width: 150px;
         height: 150px;
         -webkit-border-radius: 50%;
@@ -94,5 +116,7 @@
 
     }
 i{color: grey}
-
+   span{
+       margin: 5px 1px 1px 8px;
+   }
 </style>

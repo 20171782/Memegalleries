@@ -7,23 +7,43 @@ admin.initializeApp();
 
 
 exports.addAdminRole = functions.https.onCall((data, context) => {
-
-        return admin.auth().getUserByEmail(data.email).then((user) =>{
+    return admin.auth().getUserByEmail(data.email).then((user) =>{
             return admin.auth().setCustomUserClaims(user.uid,{
-                admin:true
+                admin:true,
+
+            }).then(()=>{
+
             })
         }).then(()=>{
             return {
-                message:`Success! ${data.email} has been made an admin`
+                message:`Success! ${data.email} has disable`
             }
-        }).catch(err =>{
+        })
+
+        .catch(err =>{
             return err
         })
 
+});
+
+exports.UpdateUser = functions.https.onCall((data, context) => {
+    return admin.auth().getUserByEmail(data.email).then((user) =>{
+        return admin.auth().updateUser(user.uid, {
+            disabled: true
 
 
+        })
 
+    }).then(()=>{
 
+        return {
+
+            message:`Success! ${data.email} has been not been disabled`,
+
+        }
+    }).catch(err =>{
+        return err
+    })
 
 });
 

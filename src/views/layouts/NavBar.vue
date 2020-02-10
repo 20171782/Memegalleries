@@ -28,6 +28,8 @@
        <div class="uk-navbar-right uk-visible@l ">
 
          <ul class="uk-iconnav uk-navbar-nav">
+
+           <li v-if="Admin"><router-link to="/admin"><a href="#"  style=""><img width="30" height="30" src="@/assets/admin.png" alt=""></a></router-link></li>
            <li v-if="user"><router-link to="/about"><a href="#"  style=""><i class="fas fa-grin-alt"></i></a></router-link></li>
            <li v-if="!user"><router-link to="/signup"><a href="#"  style=""><i class="fa fa-sign-out"></i></a></router-link></li>
            <li v-if="!user"><router-link :to="{ name: 'login' }"><a href="#"  style=""><i class="fa fa-unlock"></i></a></router-link></li>
@@ -63,6 +65,12 @@
 
           <div class="uk-width-1-1@s small">
             <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: false">
+              <li v-if="user  && Admin ">
+                <router-link to="/about"
+                ><i class="fas fa-grin-alt">Admin Page</i></router-link
+                >
+              </li>
+
               <li v-if="user">
                 <router-link to="/about"
                 ><i class="fas fa-grin-alt">about us</i></router-link
@@ -128,7 +136,11 @@ export default {
       alias: null
     };
   },
-  computed: {},
+  computed: {
+    Admin(){
+      return this.$store.state.Admin
+    }
+  },
   methods: {
     logout() {
 
@@ -145,6 +157,7 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch('IsAdmin')
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.user = user;

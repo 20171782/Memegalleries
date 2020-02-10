@@ -42,6 +42,7 @@
                       <li>
                           <div>
                               <div class="icon">
+<!--                                  <p v-if="Admin"><img width="30" height="30" src="@/assets/admin.png" alt="">Admin User</p>-->
                                   <h4 class="uk-heading-bullet">Contact Information</h4>
                                   <p><i class="fa fa-fa fa-envelope-open"></i> {{test.email}}</p>
                                   <p><i class="fa fa-phone-square"></i> {{test.phone}}</p>
@@ -205,6 +206,11 @@ ID(){
           return count;
       },
   },
+    computed: {
+        Admin(){
+            return this.$store.state.Admin
+        }
+    },
   created() {
      this.$store.dispatch('ViewProfiles',this.crabs)
      this.$store.dispatch('loadMemes',this.Memes)
