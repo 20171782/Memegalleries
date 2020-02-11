@@ -1,11 +1,42 @@
 <template>
-    <div  class="uk-text-center" @submit.prevent="AddToAmin">
-        <h2>Admin Page</h2>
-        <form action="">
-            <label for="">Email</label>
-            <input type="text" v-model="email">
-     <button  @click="AddToAmin">Make Admin</button>
-        </form>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-sm-4 col-md-3 sidebar">
+                <div class="mini-submenu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <div class="list-group">
+        <span href="#" class="list-group-item active">
+            Submenu
+            <span class="pull-right" id="slide-submenu">
+                <i class="fa fa-times"></i>
+            </span>
+        </span>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-comment-o"></i> Lorem ipsum
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-search"></i> Lorem ipsum
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-user"></i> Lorem ipsum
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-folder-open-o"></i> Lorem ipsum <span class="badge">14</span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-bar-chart-o"></i> Lorem ipsumr <span class="badge">14</span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-envelope"></i> Lorem ipsum
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -48,32 +79,39 @@
 </script>
 
 <style scoped>
-    .thumbnail {
-        padding:0px;
+
+    .mini-submenu{
+        display:none;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid rgba(0, 0, 0, 0.9);
+        border-radius: 4px;
+        padding: 9px;
+        /*position: relative;*/
+        width: 42px;
+
     }
-    .panel {
-        position:relative;
+
+    .mini-submenu:hover{
+        cursor: pointer;
     }
-    .panel>.panel-heading:after,.panel>.panel-heading:before{
-        position:absolute;
-        top:11px;left:-16px;
-        right:100%;
-        width:0;
-        height:0;
-        display:block;
-        content:" ";
-        border-color:transparent;
-        border-style:solid solid outset;
-        pointer-events:none;
+
+    .mini-submenu .icon-bar {
+        border-radius: 1px;
+        display: block;
+        height: 2px;
+        width: 22px;
+        margin-top: 3px;
     }
-    .panel>.panel-heading:after{
-        border-width:7px;
-        border-right-color:#f7f7f7;
-        margin-top:1px;
-        margin-left:2px;
+
+    .mini-submenu .icon-bar {
+        background-color: #000;
     }
-    .panel>.panel-heading:before{
-        border-right-color:#ddd;
-        border-width:8px;
+
+    #slide-submenu{
+        background: rgba(0, 0, 0, 0.45);
+        display: inline-block;
+        padding: 0 8px;
+        border-radius: 4px;
+        cursor: pointer;
     }
 </style>

@@ -38,6 +38,12 @@ import gal from "@/components/pages/gallery";
 import profile from "@/components/auth/profile.vue";
 import noti from "@/Notification/noti.vue";
 import notiMess from "@/Notification/notificationMessage.vue";
+import push from "@/components/frames/pushbar.vue";
+
+
+
+
+
 import VueFirestore from 'vue-firestore'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
@@ -99,6 +105,7 @@ Vue.component('users', users)
 Vue.component('gal', gal)
 Vue.component('profile',profile)
 Vue.component('noti',noti)
+Vue.component('push',push)
 import Grid from "./components/Grid";
 
 

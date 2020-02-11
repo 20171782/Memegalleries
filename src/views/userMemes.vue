@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="uk-card-media-top uk-inline-clip uk-transition-toggle">
-                <router-link :to="'/start/' + image.Meme_id"><img class="uk-transition-scale-up uk-transition-opaque" :src="image.image" alt=""></router-link>
+                <router-link :to="'/start/' + image.Meme_id"><img class="uk-transition-scale-up uk-transition-opaque image-fluid" :src="image.image" alt=""></router-link>
             </div>
 
           <div style="font-size: 1.3rem;" class="uk-card-body" >
