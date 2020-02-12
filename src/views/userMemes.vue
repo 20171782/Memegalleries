@@ -112,7 +112,7 @@
             for (var item1 in this.dislikes) {
               if (item.Meme_id === this.dislikes[item1].Meme_id) {
                 count = count + 1;
-              } else {
+              } else {2
               }
             }
             return count;

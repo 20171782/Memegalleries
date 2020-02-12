@@ -31,7 +31,7 @@
 
 
                 <div v-if="Admin" class="uk-flex-inline uk-margin-top">
-                    <p ><img width="30" height="30" src="@/assets/admin.png" alt=""></p><span>Admin User</span>
+                    <!--<p ><img width="30" height="30" src="@/assets/admin.png" alt=""></p><span>Admin User</span>-->
                 </div>
                     <h4 class="uk-heading-bullet uk-margin-top">Contact Information</h4>
                     <p><i class="fa fa-fa fa-envelope-open"></i> {{test.email}}</p>
