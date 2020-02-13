@@ -1,8 +1,8 @@
 <template>
-    <div class="body" style="min-height: 85vh">
+    <div class=" body" style="min-height: 95vh">
         <div class="container-fluid h-150 ">
-            <div class="row justify-content-center h-100">
-                <div class="col-md-4 col-xl-3 chat"><div class="card mb-sm-3 mb-md-0 contacts_card">
+            <div class="uk-margin-large-top row justify-content-center h-100">
+                <div class="col-md-4 col-xl-3 chat "><div class="card mb-sm-3 mb-md-0 contacts_card">
                     <div class="card-header">
                         <div class="input-group">
                             <input type="text" placeholder="Search..." name="" class="form-control search">
@@ -76,7 +76,8 @@
                         </ui>
                     </div>
                     <div class="card-footer"></div>
-                </div></div>
+                </div>
+                </div>
                 <div class="col-md-8 col-xl-6 chat">
                     <div class="card">
                         <div class="card-header msg_head">
@@ -240,7 +241,7 @@
         margin-bottom: auto;
     }
     .card{
-        height: 500px;
+        height: 800px;
         border-radius: 15px !important;
         background-color: rgba(0,0,0,0.4) !important;
     }
